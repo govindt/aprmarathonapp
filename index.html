@@ -26,6 +26,8 @@
 					<li><a href="#home" class="ui-btn-active">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
+					<li><a href="#channelvidz">Channel</a></li>
+					<li><a href="#racetrack">Track</a><li>
 				</ul>
 			</nav>
 			<h3>Welcome to APR Marathon 2017</h3>
@@ -51,6 +53,8 @@
 					<li><a href="#home">Home</a></li>
 					<li><a href="#about" class="ui-btn-active">About</a></li>
 					<li><a href="#contact">Contact</a></li>
+					<li><a href="#channelvidz">Channel</a></li>
+					<li><a href="#racetrack">Track</a><li>
 				</ul>
 			</nav>
 			 <h3>About APR Marthon</h3>
@@ -80,6 +84,8 @@
 					<li><a href="#home">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact" class="ui-btn-active">Contact</a></li>
+					<li><a href="#channelvidz">Channel</a></li>
+					<li><a href="#racetrack">Track</a><li>
 				</ul>
 			</nav>
 			<h3>Contact Us</h3>
@@ -99,13 +105,71 @@
 			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
 		</footer>
 	</div>
+	<div data-role="page" id="channelvidz">
+		<header data-role="header">
+			<h1>APR Marathon Video Channel</h1>
+		</header>
+		<div data-role="content">
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#channelvidz" class="ui-btn-active">Channel</a></li>
+					<li><a href="#racetrack">Track</a><li>
+				</ul>
+			</nav>
+			<img id="videologo" src="img/videologo.png">
+			<div id="showVideo"></div>
+			<br>
+			<br>
+			<ul id="vidlist" data-role="listview" data-inset="true"></ul>
+		</div>
+		<footer data-role="footer">
+			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+		</footer>
+		
+	</div>
+		<div data-role="page" id="racetrack" data-url="racetrack">
+		<div data-role="header" data-theme="a">
+			<h1>APR Marathon Race Tracker</h1>
+		</div>
+		<div data-role="content">
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#channelvidz">Channel</a></li>
+					<li><a href="#racetrack" class="ui-btn-active">Track</a><li>
+				</ul>
+			</nav>
+			<button data-role="button" id="startTracking">Start Race</button>
+			<button data-role="button" id="stopTracking">Stop Race</button>
+
+		</div>
+		<div role="main" class="ui-content" id="map-canvas" style="width: 100%; height: 300px;></div>
+		<div id="right-panel"></div>
+		</div>
+<!--
+		<div class="container">
+
+			<center><div id="map" style="width: 100%; height: 300px;"></div></center>
+                </div>
+-->
+		<div data-role="footer">
+			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+		</div>
+		
+	</div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.mobile.js"></script>	
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/countdown.js"></script>
-
+    <script type="text/javascript" src="js/jquery.googlemap.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I"></script>
 
 </body>
 
