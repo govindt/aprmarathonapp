@@ -1,5 +1,5 @@
 .banner{
-	width:100%;
+	width: 100%;
 }
 
 .ui-li-thumb, .ui-li-icon {
@@ -70,3 +70,33 @@ html, body, .container,  #map {
         width: 390px;
         overflow: auto;
 }
+#aprm-li-home.ui-btn-active {
+    background:#11A3AE !important;
+}
+
+#aprm-li-about.ui-btn-active {
+    background:#11A3AE !important;
+}
+
+#aprm-li-contact.ui-btn-active {
+    background:#11A3AE !important;
+}
+
+#aprm-li-channel.ui-btn-active {
+    background:#11A3AE !important;
+}
+
+#aprm-li-race.ui-btn-active {
+    background:#11A3AE !important;
+}
+
+#controls{
+	font-size: 12px;
+}
+
+#time {
+    display: inline;
+   
+}
+.gm-style img { max-width: none; }
+.gm-style label { width: auto; display: inline; }

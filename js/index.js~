@@ -21,17 +21,13 @@ $(document).bind("pageinit", function() {
 
 $(document).on('click', '#racetrack', function() {
 	showRaceTrack();
-	refreshMap();
-});
-
-function refreshMap() {
 	x = map.getZoom();
 	c = map.getCenter();
 	console.log('Triggering resize during click zoom: ' + x);
 	google.maps.event.trigger(map,'resize');
 	map.setZoom(x);
 	map.setCenter(c);
-}
+});
 
 function getPlaylist(channel) {
 	$('#vidlist').html('');
@@ -154,8 +150,7 @@ function startTracking() {
         		map: map
      	});
      	marker.setPosition(myLatLng);
-	trackingData.push(position);
-	refreshMap();
+	trackingData.push(myLatLng);
 	if ( trackingData != null && trackingData.length > 1) {
 		for (var i = 0; i < trackingData.length - 1; i++) {
     			distanceTotal += google.maps.geometry.spherical.computeDistanceBetween(trackingData[i].coords, trackingData[i+1].coords);

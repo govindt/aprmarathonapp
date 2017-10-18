@@ -20,14 +20,14 @@
 		<header data-role="header">
 			<h1>APR Marathon Home</h1>
 		</header>
-		<div data-role="content">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#home" class="ui-btn-active">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="#channelvidz">Channel</a></li>
-					<li><a href="#racetrack">Track</a><li>
+		<div data-role="content" data-theme="d">
+			<nav data-role="navbar" data-theme="d">
+				<ul id="aprm-nav-list-home">
+					<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
+					<li><a href="#about" data-icon="info" id="aprm-li-about-home">About</a></li>
+					<li><a href="#contact" data-icon="phone" id="aprm-li-contact-home">Contact</a></li>
+					<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-home">Channel</a></li>
+					<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-home">Race</a></li>
 				</ul>
 			</nav>
 			<h3>Welcome to APR Marathon 2017</h3>
@@ -47,19 +47,19 @@
 		<header data-role="header">
 			<h1>APR Marathon About</h1>
 		</header>
-		<div data-role="content">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about" class="ui-btn-active">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="#channelvidz">Channel</a></li>
-					<li><a href="#racetrack">Track</a><li>
-				</ul>
+		<div data-role="content" data-theme="d">
+			<nav data-role="navbar" data-theme="d">
+			<ul id="aprm-nav-list-about">
+				<li><a href="#home" data-icon="home" id="aprm-li-home-about">Home</a></li>
+				<li><a href="#about" data-icon="info" class="ui-btn-active" id="aprm-li-about-about">About</a></li>
+				<li><a href="#contact" data-icon="phone" id="aprm-li-contact-about">Contact</a></li>
+				<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-about">Channel</a></li>
+				<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-about">Race</a></li>
+			</ul>
 			</nav>
-			 <h3>About APR Marthon</h3>
-			 <img class="banner" src="img/apr-marathon-trust.png">
-			 <p>
+			<h3>About APR Marthon</h3>
+			<img class="banner" src="img/apr-marathon-trust.png">
+			<p>
 			 The APR Marathon is scheduled to be conducted on Dec 3rd 2017 (Sunday) at Adarsh Palm Retreat Office/Tower 1.
 			 </p>
 			<b>History:</b>
@@ -78,15 +78,15 @@
 		<header data-role="header">
 			<h1>APR Marathon Contact</h1>
 		</header>
-		<div data-role="content">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact" class="ui-btn-active">Contact</a></li>
-					<li><a href="#channelvidz">Channel</a></li>
-					<li><a href="#racetrack">Track</a><li>
-				</ul>
+		<div data-role="content" data-theme="d">
+			<nav data-role="navbar" data-theme="d">
+			<ul id="aprm-nav-list-contact">
+				<li><a href="#home" data-icon="home" id="aprm-li-home-contact">Home</a></li>
+				<li><a href="#about" data-icon="info" id="aprm-li-about-contact">About</a></li>
+				<li><a href="#contact" data-icon="phone" class="ui-btn-active" id="aprm-li-contact-contact">Contact</a></li>
+				<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-contact">Channel</a></li>
+				<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-contact">Race</a></li>
+			</ul>
 			</nav>
 			<h3>Contact Us</h3>
 			<div class="map">
@@ -109,15 +109,15 @@
 		<header data-role="header">
 			<h1>APR Marathon Video Channel</h1>
 		</header>
-		<div data-role="content">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="#channelvidz" class="ui-btn-active">Channel</a></li>
-					<li><a href="#racetrack">Track</a><li>
-				</ul>
+		<div data-role="content" data-theme="d">
+			<nav data-role="navbar" data-theme="d">
+			<ul id="aprm-nav-list-video">
+				<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-video">Home</a></li>
+				<li><a href="#about" data-icon="info" id="aprm-li-about-video">About</a></li>
+				<li><a href="#contact" data-icon="phone" id="aprm-li-contact-video">Contact</a></li>
+				<li><a href="#channelvidz" data-icon="video" class="ui-btn-active-video" id="aprm-li-channel">Channel</a></li>
+				<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-video">Race</a></li>
+			</ul>
 			</nav>
 			<img id="videologo" src="img/videologo.png">
 			<div id="showVideo"></div>
@@ -130,33 +130,38 @@
 		</footer>
 		
 	</div>
-		<div data-role="page" id="racetrack" data-url="racetrack">
-		<div data-role="header" data-theme="a">
-			<h1>APR Marathon Race Tracker</h1>
+	<div data-role="page" id="racetrack">
+		<div data-role="header" data-position="inline">
+			<a href="#racetrack" data-icon="check" id="start_pause_resume" data-mini="true">Start</a>
+			<div id="time">
+				<span id="hours">00</span> :
+				<span id="minutes">00</span> :
+   				<span id="seconds">00</span> --
+				<span id="kms">0.0 Kms</span>
+			</div>
+
+
+			<div style="float:right">
+			<a href="#racetrack" data-icon="delete" id="reset" data-mini="true">Reset</a>
+			</div>
 		</div>
 		<div data-role="content">
-			<nav data-role="navbar">
-				<ul>
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li><a href="#channelvidz">Channel</a></li>
-					<li><a href="#racetrack" class="ui-btn-active">Track</a><li>
+			<nav data-role="navbar" data-theme="d">
+				<ul id="aprm-nav-list-race">
+					<li><a href="#home" data-icon="home" id="aprm-li-home-race">Home</a></li>
+					<li><a href="#about" data-icon="info" id="aprm-li-about-race">About</a></li>
+					<li><a href="#contact" data-icon="phone" id="aprm-li-contact-race">Contact</a></li>
+					<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-race">Channel</a></li>
+					<li><a href="#racetrack" data-icon="navigation" class="ui-btn-active" id="aprm-li-race-race">Race</a></li>
 				</ul>
 			</nav>
-			<button data-role="button" id="startTracking">Start Race</button>
-			<button data-role="button" id="stopTracking">Stop Race</button>
-
-		</div>
-		<div role="main" class="ui-content" id="map-canvas" style="width: 100%; height: 300px;></div>
-		<div id="right-panel"></div>
 		</div>
 <!--
-		<div class="container">
-
-			<center><div id="map" style="width: 100%; height: 300px;"></div></center>
-                </div>
+		<div role="main" class="ui-content" class="map-canvas" style="width: 100%; height: 600px;></div>
 -->
+		<div id="container" class="container">
+			<div id="map-canvas" style="width: 100%; height: 600px;></div>
+		</div>
 		<div data-role="footer">
 			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
 		</div>
@@ -168,6 +173,7 @@
     <script type="text/javascript" src="js/jquery.mobile.js"></script>	
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/countdown.js"></script>
+    <script type="text/javascript" src="js/racestopwatch.js"></script>
     <script type="text/javascript" src="js/jquery.googlemap.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I"></script>
 
