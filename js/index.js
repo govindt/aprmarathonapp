@@ -87,6 +87,7 @@ _directionsRenderer = '';
 marker = null;
 var trackingData = [];
 var distanceTotal = 0;
+var trackerIcon = null;
 
 
 
@@ -133,10 +134,20 @@ function showRaceTrack() {
 }
 
 function setDistance(distance) {
-	console.log('Setting distance to ' + distance);
-	$("#kms").html(distance + ' Kms');
+	km_distance = distance/1000;
+	km_distance = Math.round(km_distance * 100)/100;
+	console.log('Setting distance to ' + km_distance);
+	$("#kms").html(', ' + km_distance + ' Kms');
 }
 
+function deleteMarker() {
+	// Delete Existing Marker
+	if ( marker != null ) {
+		console.log('Deleting prior marker');
+		marker.setMap(null);
+		marker = null;
+	}
+}
 
 function startTracking() {
     console.log('In startTracking'); 
@@ -148,17 +159,28 @@ function startTracking() {
      	myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	console.log('MyLatLng ' + myLatLng);
      	map.setCenter(myLatLng);
-     	marker = new google.maps.Marker({
+	deleteMarker();
+	if ( trackerIcon == null ) {
+		trackerIcon = {
+    			url: "img/area-512.png", // url
+    			scaledSize: new google.maps.Size(50, 50), // scaled size
+    			anchor: new google.maps.Point(25,25) // anch5or 
+		};
+	}
+	marker = new google.maps.Marker({
      		   	position: myLatLng,
-			icon: 'img/act-apr-chartitable-trust-mapicon.png',
+			icon: trackerIcon,
         		map: map
      	});
      	marker.setPosition(myLatLng);
-	trackingData.push(position);
+	trackingData.push(myLatLng);
 	refreshMap();
+	console.log('Tracking Data ' + trackingData);
 	if ( trackingData != null && trackingData.length > 1) {
+		console.log('Tracking Data Length ' + trackingData.length);
+		distanceTotal = 0;
 		for (var i = 0; i < trackingData.length - 1; i++) {
-    			distanceTotal += google.maps.geometry.spherical.computeDistanceBetween(trackingData[i].coords, trackingData[i+1].coords);
+    			distanceTotal += google.maps.geometry.spherical.computeDistanceBetween(trackingData[i], trackingData[i+1]);
 		}
 		setDistance(distanceTotal);
 	}
@@ -181,6 +203,7 @@ function stopTracking() {
 	trackingData = [];
 	distanceTotal = 0;
 	setDistance(0.0);
+	deleteMarker();
 }
 
 function load5KPoints() {
