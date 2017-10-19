@@ -88,8 +88,12 @@ marker = null;
 var trackingData = [];
 var distanceTotal = 0;
 var trackerIcon = null;
+var paused = false;
 
-
+function setPaused(val) {
+	console.log('Setting paused to ' + val);
+	paused = val;
+}
 
 function showRaceTrack() {
     	console.log('In showRaceTrack');
@@ -134,10 +138,16 @@ function showRaceTrack() {
 }
 
 function setDistance(distance) {
-	km_distance = distance/1000;
-	km_distance = Math.round(km_distance * 100)/100;
-	console.log('Setting distance to ' + km_distance);
-	$("#kms").html(', ' + km_distance + ' Kms');
+	console.log('Setting distance to ' + distance);
+	if ( distance != 0 ) {
+		if ( !paused ) {
+			km_distance = distance/1000;	
+			km_distance = Math.round(km_distance * 100)/100;
+			$("#kms").html(km_distance);
+		} 
+	} else {
+		$("#kms").html('0.0');
+	}
 }
 
 function deleteMarker() {
@@ -150,12 +160,12 @@ function deleteMarker() {
 }
 
 function startTracking() {
-    console.log('In startTracking'); 
-    $('#startTracking').prop('disabled', true);
-    $('#stopTracking').prop('disabled', false);
+    	console.log('In startTracking'); 
+    	$('#startTracking').prop('disabled', true);
+    	$('#stopTracking').prop('disabled', false);
 
-    // Start tracking the User
-     watch_id = navigator.geolocation.watchPosition(function(position){
+    	// Start tracking the User
+     	watch_id = navigator.geolocation.watchPosition(function(position){
      	myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	console.log('MyLatLng ' + myLatLng);
      	map.setCenter(myLatLng);

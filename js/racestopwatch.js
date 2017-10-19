@@ -8,16 +8,20 @@ $(function() {
     $("#start_pause_resume").button().click(function(){
         // Start button
         if($(this).text() == "Start"){  // check button label
+	    setPaused(false);
+
             $(this).html("<span class='ui-button-text'>Pause</span>");
-            updateTime(0,0,0,0);
+            updateTime(0,0,0);
         }
-		// Pause button
+	// Pause button
         else if($(this).text() == "Pause"){
             clearInterval(timeUpdate);
             $(this).html("<span class='ui-button-text'>Resume</span>");
+	    setPaused(true);
         }
-		// Resume button		
+	// Resume button		
         else if($(this).text() == "Resume"){
+	    setPaused(false);
             prev_hours = parseInt($("#hours").html());
             prev_minutes = parseInt($("#minutes").html());
             prev_seconds = parseInt($("#seconds").html());
@@ -32,8 +36,8 @@ $(function() {
     // Reset button onClick
     $("#reset").button().click(function(){
         if(timeUpdate) clearInterval(timeUpdate);
-        setStopwatch(0,0,0,0);
-        $("#start_pause_resume").html("<span class='ui-button-text'>Start</span>");      
+        setStopwatch(0,0,0);
+        $("#start_pause_resume").html("<span class='ui-button-text'>Start</span>");
 	stopTracking();
     });
     
