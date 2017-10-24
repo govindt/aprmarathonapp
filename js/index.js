@@ -16,12 +16,12 @@ $(document).bind("pageinit", function() {
 	var channel = 'UC-0QtxHQwuQSHebab3LHAug';
 	console.log('Channel: ' + channel);
 	getPlaylist(channel);
-	showRaceTrack();
+	//showRaceTrack();
 });
 
 $(document).on('click', '#racetrack', function() {
 	showRaceTrack();
-	refreshMap();
+	//refreshMap();
 });
 
 function refreshMap() {
@@ -83,12 +83,16 @@ myLatLng = null;
 map = null;
 var zoom = 16;
 directionsService = null;
-_directionsRenderer = '';
+var _directionsRenderer;
 marker = null;
 var trackingData = [];
+var _waypoints = new Array();
+var _instructions = new Array();
 var distanceTotal = 0;
+var runningTotal = 0;
 var trackerIcon = null;
 var paused = false;
+var leg = 0;
 
 function setPaused(val) {
 	console.log('Setting paused to ' + val);
@@ -100,7 +104,7 @@ function showRaceTrack() {
     	var defaultLatLng = new google.maps.LatLng(12.919710, 77.688186);  // Default APR Project office
     	if ( navigator.geolocation ) {
 		directionsService = new google.maps.DirectionsService();
-	  	_directionsRenderer = new google.maps.DirectionsRenderer();
+		_directionsRenderer = new google.maps.DirectionsRenderer();
 		_directionsRenderer.setOptions({
 	       		draggable: false,
 			scrollwheel:false
@@ -118,6 +122,7 @@ function showRaceTrack() {
         	navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
 
     	} else {
+		console.log('Showing default');
         	drawMap(defaultLatLng);  // No geolocation support, show default map
     	}
 
@@ -133,7 +138,7 @@ function showRaceTrack() {
 		stopLatLng = new google.maps.LatLng(12.920080, 77.688076); 		
 		load5KPoints();
 		_directionsRenderer.setMap(map);
-		_directionsRenderer.setPanel(document.getElementById('right-panel'));
+		_directionsRenderer.setPanel(document.getElementById('directions-canvas'));
      	}
 }
 
@@ -152,7 +157,7 @@ function setDistance(distance) {
 
 function deleteMarker() {
 	// Delete Existing Marker
-	if ( marker != null ) {
+	if ( typeof marker != 'undefined' && marker != null ) {
 		console.log('Deleting prior marker');
 		marker.setMap(null);
 		marker = null;
@@ -183,8 +188,8 @@ function startTracking() {
         		map: map
      	});
      	marker.setPosition(myLatLng);
-	trackingData.push(myLatLng);
-	refreshMap();
+	trackingData.push(myLatLng);	
+	//refreshMap();
 	console.log('Tracking Data ' + trackingData);
 	if ( trackingData != null && trackingData.length > 1) {
 		console.log('Tracking Data Length ' + trackingData.length);
@@ -192,7 +197,10 @@ function startTracking() {
 		for (var i = 0; i < trackingData.length - 1; i++) {
     			distanceTotal += google.maps.geometry.spherical.computeDistanceBetween(trackingData[i], trackingData[i+1]);
 		}
-		setDistance(distanceTotal);
+		runningTotal += distanceTotal;
+		setDistance(runningTotal);
+		distanceTotal = 0;
+		trackingData = [];
 	}
     },
     // Error
@@ -212,51 +220,161 @@ function stopTracking() {
 	navigator.geolocation.clearWatch(watch_id);
 	trackingData = [];
 	distanceTotal = 0;
+	runningTotal = 0;
 	setDistance(0.0);
 	deleteMarker();
+	leg = 0;
 }
 
 function load5KPoints() {
 	console.log('load5KPoints');
-	var _waypoints = new Array();
+	_waypoints = new Array();
+	_instructions = new Array();
 	tmpLatLng = new google.maps.LatLng(12.9195035, 77.6946959); // Clubhouse gate
+	_waypoints.push({
+         	location: tmpLatLng,
+         	stopover: false  //stopover is used to show marker on map for waypoints
+	});
+	_instructions.push({
+		distance: 0.6,
+		leg: 1,
+		instruction: 'Make a left turn into the Adarsh Palm Retreat Gate'
+	});
+	tmpLatLng = new google.maps.LatLng(12.921900, 77.694703); // Clubhouse gate
+	_waypoints.push({
+         	location: tmpLatLng,
+         	stopover: false  //stopover is used to show marker on map for waypoints
+        });
+	_instructions.push({
+		distance: 0.86,
+		leg: 2,
+		instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
+	});
+	tmpLatLng = new google.maps.LatLng(12.922138, 77.688038); // Clubhouse gate
+	_waypoints.push({
+         	location: tmpLatLng,
+         	stopover: false  //stopover is used to show marker on map for waypoints
+        });
+	_instructions.push({
+		distance: 1.59,
+		leg: 3,
+		instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
+	});
+	/*tmpLatLng =  new google.maps.LatLng(12.922324, 77.691749); // Lane 6
 	 _waypoints.push({
          	location: tmpLatLng,
-         	stopover: true  //stopover is used to show marker on map for waypoints
-         });
-	tmpLatLng =  new google.maps.LatLng(12.922324, 77.691749); // Lane 6
-	 _waypoints.push({
-         	location: tmpLatLng,
-         	stopover: true  //stopover is used to show marker on map for waypoints
+         	stopover: false  //stopover is used to show marker on map for waypoints
          });
 	tmpLatLng =  new google.maps.LatLng(12.920756, 77.685507); // RMZ Ecoworld opposite
 	 _waypoints.push({
          	location: tmpLatLng,
-         	stopover: true  //stopover is used to show marker on map for waypoints
+         	stopover: false  //stopover is used to show marker on map for waypoints
          });
 	tmpLatLng =  new google.maps.LatLng(12.928954, 77.684692); // Intel
 	 _waypoints.push({
          	location: tmpLatLng,
-         	stopover: true  //stopover is used to show marker on map for waypoints
+         	stopover: false  //stopover is used to show marker on map for waypoints
          });
 	tmpLatLng =  new google.maps.LatLng(12.922098, 77.682877); // Inside RMZ Ecoworld 1
 	 _waypoints.push({
          	location: tmpLatLng,
-         	stopover: true  //stopover is used to show marker on map for waypoints
+         	stopover: false  //stopover is used to show marker on map for waypoints
          });
 	tmpLatLng =  new google.maps.LatLng(12.921764, 77.684250); // Inside RMZ Ecoworld 2
 	 _waypoints.push({
          	location: tmpLatLng,
-         	stopover: true  //stopover is used to show marker on map for waypoints
+         	stopover: false  //stopover is used to show marker on map for waypoints
          });
-	drawRoute(startLatLng, stopLatLng, _waypoints);
+	drawRoute(startLatLng, stopLatLng, _waypoints);*/
+	drawAjaxRoute();
 }
 
+function drawAjaxRoute() {
+	console.log('drawAjaxRoute');
+	$.ajax({
+  	type: "GET",
+  	url: "5KRoute.gpx",
+  	dataType: "xml",
+  	success: function(xml) {
+		console.log('drawAjaxRoute::Success');
+		var points = [];
+		var bounds = new google.maps.LatLngBounds ();
+		$(xml).find("trkpt").each(function() {
+		 	var lat = $(this).attr("lat");
+	  		var lon = $(this).attr("lon");
+			var p = new google.maps.LatLng(lat, lon);
+		  	points.push(p);
+			/* _waypoints.push({
+         			location: p,
+         			stopover: false  //stopover is used to show marker on map for waypoints
+         		});*/
+	  		bounds.extend(p);
+	});
+
+	var poly = new google.maps.Polyline({
+	  // use your own style here
+	  path: points,
+	  strokeColor: "#FF00AA",
+	  strokeOpacity: .7,
+	  strokeWeight: 4
+	});
+	
+	poly.setMap(map);
+	
+	// fit bounds to track
+	map.fitBounds(bounds);
+	}
+	});
+	trackMe(startLatLng, stopLatLng, _waypoints);
+}
+
+function trackMe(originAddress, destinationAddress, _waypoints) {
+	//Define a request variable for route .
+    	var _request = '';
+    	console.log('trackMe : ' + originAddress + ' ' + destinationAddress + ' ' + _waypoints); 
+    	console.log(myLatLng);
+    	//This is for more then two locatins
+    	if (_waypoints.length > 0) {
+	        _request = {
+        		origin: originAddress,
+            		destination: destinationAddress,
+            		waypoints: _waypoints,
+            		optimizeWaypoints: false, //set to true if you want google to determine the shortest route or false to use the order specified.
+            		travelMode: google.maps.DirectionsTravelMode.WALKING
+        	};
+    	} else {
+        	//This is for one or two locations. Here noway point is used.
+        	_request = {
+            		origin: originAddress,
+            		destination: destinationAddress,
+            		travelMode: google.maps.DirectionsTravelMode.WALKING
+        	};
+    	}
+	//This will take the request and draw the route and return response and status as output
+	directionsService.route(_request, function (_response, _status) {
+	console.log('Status ' + _status);
+        if (_status == google.maps.DirectionsStatus.OK) {
+            	//_directionsRenderer.setDirections(_response);
+		console.log('Distance : ' + _response.routes[0].legs[0].distance.text);
+		console.log('Duration : ' + _response.routes[0].legs[0].duration.text);
+		console.log('Instruction : ' + _response.routes[0].legs[0].steps[0].instructions);
+        }
+    });
+}
+
+function speakDirection() {
+	if ( totalDistance > (_instrutions[leg].distance - 0.2) && totalDistance < _instructions[leg].distance ) {
+		console.log('Instruction : ' + _instructions[leg].instruction);
+		speak(_instructions[leg].instruction);
+		leg++;
+	}
+}
 //drawRoute() will help actual draw the route on map.
 function drawRoute(originAddress, destinationAddress, _waypoints) {
     //Define a request variable for route .
     var _request = '';
     console.log('drawRoute : ' + originAddress + ' ' + destinationAddress + ' ' + _waypoints); 
+    console.log(myLatLng);
     //This is for more then two locatins
     if (_waypoints.length > 0) {
         _request = {
@@ -274,40 +392,23 @@ function drawRoute(originAddress, destinationAddress, _waypoints) {
             travelMode: google.maps.DirectionsTravelMode.WALKING
         };
     }
+
+    /*_request = {
+            origin: originAddress,
+            destination: _waypoints[0].location,
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+        };*/
  
     //This will take the request and draw the route and return response and status as output
     directionsService.route(_request, function (_response, _status) {
-	console.log('Status ' + status);
+	console.log('Status ' + _status);
         if (_status == google.maps.DirectionsStatus.OK) {
-            _directionsRenderer.setDirections(_response);
+            	_directionsRenderer.setDirections(_response);
+		console.log('Distance : ' + _response.routes[0].legs[0].distance.text);
+		console.log('Duration : ' + _response.routes[0].legs[0].duration.text);
+		console.log('Instruction : ' + _response.routes[0].legs[0].steps[0].instructions);
+		speak(_response.routes[0].legs[0].steps[0].instructions);
         }
     });
 }						
-
-function autoUpdate() {
-    navigator.geolocation.getCurrentPosition(function(position) {  
-    var newPoint = new google.maps.LatLng(position.coords.latitude, 
-                                          position.coords.longitude);
-    console.log('autoUpdate ' + newPoint);
-
-    if (marker) {
-      // Marker already created - Move it
-      marker.setPosition(newPoint);
-    }
-    else {
-      // Marker does not exist - Create it
-      marker = new google.maps.Marker({
-        position: newPoint,
-	icon: 'img/act-apr-chartitable-trust-mapicon.png',
-        map: map
-      });
-    }
-
-    // Center the map on the new position
-    map.setCenter(newPoint);
-  }); 
-
-  // Call the autoUpdate() function every 5 seconds
-  setTimeout(autoUpdate, 5000);
-}
 

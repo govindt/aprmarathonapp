@@ -12,6 +12,8 @@ $(function() {
 
             $(this).html("<span class='ui-button-text'>Pause</span>");
             updateTime(0,0,0);
+	    startTracking();
+
         }
 	// Pause button
         else if($(this).text() == "Pause"){
@@ -30,7 +32,6 @@ $(function() {
             
             $(this).html("<span class='ui-button-text'>Pause</span>");
         }
-	startTracking();
     });
     
     // Reset button onClick
