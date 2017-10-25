@@ -24,6 +24,31 @@ $(document).on('click', '#racetrack', function() {
 	//refreshMap();
 });
 
+function toast(message) {
+    var $toast = $('<div class="ui-loader ui-overlay-shadow ui-body-e ui-corner-all"><h3>' + message + '</h3></div>');
+
+    $toast.css({
+        display: 'block', 
+        background: '#fff',
+        opacity: 0.90, 
+        position: 'fixed',
+        padding: '7px',
+        'text-align': 'center',
+        width: '270px',
+        left: ($(window).width() - 284) / 2,
+        top: $(window).height() / 2 - 20
+    });
+
+    var removeToast = function(){
+        $(this).remove();
+    };
+
+    $toast.click(removeToast);
+
+    $toast.appendTo($.mobile.pageContainer).delay(2000);
+    $toast.fadeOut(400, removeToast);
+}
+
 function refreshMap() {
 	x = map.getZoom();
 	c = map.getCenter();
@@ -90,9 +115,10 @@ var _waypoints = new Array();
 var _instructions = new Array();
 var distanceTotal = 0;
 var runningTotal = 0;
+var km_distance = 0;
 var trackerIcon = null;
 var paused = false;
-var leg = 0;
+var leg = 1;
 
 function setPaused(val) {
 	console.log('Setting paused to ' + val);
@@ -199,7 +225,7 @@ function startTracking() {
 		}
 		runningTotal += distanceTotal;
 		setDistance(runningTotal);
-		distanceTotal = 0;
+		speakDirection();
 		trackingData = [];
 	}
     },
@@ -223,7 +249,7 @@ function stopTracking() {
 	runningTotal = 0;
 	setDistance(0.0);
 	deleteMarker();
-	leg = 0;
+	leg = 1;
 }
 
 function load5KPoints() {
@@ -325,7 +351,7 @@ function drawAjaxRoute() {
 	map.fitBounds(bounds);
 	}
 	});
-	trackMe(startLatLng, stopLatLng, _waypoints);
+	//trackMe(startLatLng, stopLatLng, _waypoints);
 }
 
 function trackMe(originAddress, destinationAddress, _waypoints) {
@@ -358,12 +384,14 @@ function trackMe(originAddress, destinationAddress, _waypoints) {
 		console.log('Distance : ' + _response.routes[0].legs[0].distance.text);
 		console.log('Duration : ' + _response.routes[0].legs[0].duration.text);
 		console.log('Instruction : ' + _response.routes[0].legs[0].steps[0].instructions);
+
         }
     });
 }
 
 function speakDirection() {
-	if ( totalDistance > (_instrutions[leg].distance - 0.2) && totalDistance < _instructions[leg].distance ) {
+	toast('Distance ' + km_distance + ' Leg: ' + leg + ' I Distance ' + _instructions[leg].distance);
+	if ( km_distance > (_instructions[leg].distance - 0.2) && km_distance < _instructions[leg].distance ) {
 		console.log('Instruction : ' + _instructions[leg].instruction);
 		speak(_instructions[leg].instruction);
 		leg++;
