@@ -24,6 +24,42 @@ $(document).on('click', '#racetrack', function() {
 	//refreshMap();
 });
 
+var spreadSheetId = '1pdNANQ6_wdtVfIw_aLvHXxNddcHzM2oK0frrIJuVYtI';
+var spreadSheetRange = '5KM%20Runners!A:K';
+var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
+var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
+
+$('#aprm_search_input').on("change", function(event) {
+	readSpreadsheet();
+});
+
+watch_id = null;    // ID of the geolocation
+startLatLng = new google.maps.LatLng(12.920080, 77.688076);  
+stopLatLng = new google.maps.LatLng(12.920080, 77.688076); 		
+myLatLng = null;
+map = null;
+var zoom = 16;
+directionsService = null;
+var _directionsRenderer;
+marker = null;
+var trackingData = [];
+var _waypoints = new Array();
+var _instructions = new Array();
+var distanceTotal = 0;
+var runningTotal = 0;
+var km_distance = 0;
+var trackerIcon = null;
+var paused = false;
+var leg = 1;
+var race = 5;
+
+function checkEmpty(myVar) {	
+	if (typeof myVar == 'undefined' || myVar == null ) {
+		return '';
+	} else { 
+		return myVar;
+	}
+}
 function toast(message) {
     var $toast = $('<div class="ui-loader ui-overlay-shadow ui-body-e ui-corner-all"><h3>' + message + '</h3></div>');
 
@@ -49,14 +85,6 @@ function toast(message) {
     $toast.fadeOut(400, removeToast);
 }
 
-function refreshMap() {
-	x = map.getZoom();
-	c = map.getCenter();
-	console.log('Triggering resize during click zoom: ' + x);
-	google.maps.event.trigger(map,'resize');
-	map.setZoom(x);
-	map.setCenter(c);
-}
 
 function getPlaylist(channel) {
 	$('#vidlist').html('');
@@ -101,24 +129,7 @@ function showVideo(id) {
 	$('#showVideo').html(output);
 }
 
-watch_id = null;    // ID of the geolocation
-startLatLng = null;
-stopLatLng = null; 
-myLatLng = null;
-map = null;
-var zoom = 16;
-directionsService = null;
-var _directionsRenderer;
-marker = null;
-var trackingData = [];
-var _waypoints = new Array();
-var _instructions = new Array();
-var distanceTotal = 0;
-var runningTotal = 0;
-var km_distance = 0;
-var trackerIcon = null;
-var paused = false;
-var leg = 1;
+
 
 function setPaused(val) {
 	console.log('Setting paused to ' + val);
@@ -160,11 +171,9 @@ function showRaceTrack() {
             		mapTypeId: google.maps.MapTypeId.ROADMAP
         	};
         	map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-		startLatLng = new google.maps.LatLng(12.920080, 77.688076);  
-		stopLatLng = new google.maps.LatLng(12.920080, 77.688076); 		
 		load5KPoints();
 		_directionsRenderer.setMap(map);
-		_directionsRenderer.setPanel(document.getElementById('directions-canvas'));
+		//_directionsRenderer.setPanel(document.getElementById('directions-canvas'));
      	}
 }
 
@@ -177,6 +186,7 @@ function setDistance(distance) {
 			$("#kms").html(km_distance);
 		} 
 	} else {
+		km_distance = 0;
 		$("#kms").html('0.0');
 	}
 }
@@ -194,6 +204,7 @@ function startTracking() {
     	console.log('In startTracking'); 
     	$('#startTracking').prop('disabled', true);
     	$('#stopTracking').prop('disabled', false);
+	$('#select-race').prop('disabled', 'disabled');
 
     	// Start tracking the User
      	watch_id = navigator.geolocation.watchPosition(function(position){
@@ -217,6 +228,7 @@ function startTracking() {
 	trackingData.push(myLatLng);	
 	//refreshMap();
 	console.log('Tracking Data ' + trackingData);
+	speakDirection();
 	if ( trackingData != null && trackingData.length > 1) {
 		console.log('Tracking Data Length ' + trackingData.length);
 		distanceTotal = 0;
@@ -243,6 +255,7 @@ function stopTracking() {
 	console.log('In stopTracking ' + watch_id);    
         $('#startTracking').prop('disabled', false);
 	$('#stopTracking').prop('disabled', true);
+	$('#select-race').prop('disabled', false);
 	navigator.geolocation.clearWatch(watch_id);
 	trackingData = [];
 	distanceTotal = 0;
@@ -254,6 +267,8 @@ function stopTracking() {
 
 function load5KPoints() {
 	console.log('load5KPoints');
+	race = $("#select-race").val();
+	console.log('Race Selected : ' + race);
 	_waypoints = new Array();
 	_instructions = new Array();
 	tmpLatLng = new google.maps.LatLng(12.9195035, 77.6946959); // Clubhouse gate
@@ -315,11 +330,68 @@ function load5KPoints() {
 	drawAjaxRoute();
 }
 
+function readSpreadsheet() {
+	var value = $('#aprm_search_input').val();
+	if (checkEmpty(value) == '' ) {
+		$("#aprm_run_details_data").html('');
+		return '';
+	}
+	console.log('Value: ' + value);
+	console.log(sample_url);
+	$.ajax(sample_url).done(function(result){
+		found = false;
+		if ( result != null ) {
+			var valueRanges = new Array();
+			valueRanges = result.valueRanges;
+			var myRow = "";
+			for ( var i = 0; i < valueRanges.length; i++ ) {
+				var values = new Array();
+				values = valueRanges[i].values;
+				for ( var j = 0; j < values.length; j++) {
+					if ( values[j][6].toLowerCase() == value.toLowerCase() ) {
+						myRow += "<tr>";
+						myRow +=  "<td width='20%'>" + checkEmpty(values[j][0]) + "</td>";
+						myRow +=  "<td width='20%'>" + values[j][1] + "</td>";
+						myRow +=  "<td width='20%'>" + values[j][4] + "</td>";
+						myRow +=  "<td width='20%'>" + checkEmpty(values[j][10]) + "</td>";
+						myRow +=  "<td width='20%'>" + values[j][8] + "</td>";
+						myRow +=  "</tr>";
+						found = true;
+					}
+					if ( j == values.length - 1) {
+				                console.log(myRow);
+						if ( found == true ) 
+							$("#aprm_run_details_data").html(myRow);
+						else
+							$("#aprm_run_details_data").html("No Results found");	
+					}
+
+				}
+			}
+		}
+        });
+}
+
 function drawAjaxRoute() {
 	console.log('drawAjaxRoute');
+	var route_url, stroke_color;
+	if ( race == 5 ) {
+		route_url = "5KRoute.gpx";
+		stroke_color = "green";
+	} else if ( race == 10 ) {
+		route_url = "10KRoute.gpx";
+		stroke_color = "red";
+	} else if ( race == 21.1 ) {
+		route_url = "HMRoute.gpx";
+		stroke_color = "blue";
+	} else if ( race == 1 ) {
+		route_url = "1KRoute.gpx";
+		stroke_color = "#800080";
+	}
+	console.log("Route URL : " + route_url);
 	$.ajax({
   	type: "GET",
-  	url: "5KRoute.gpx",
+  	url: route_url,
   	dataType: "xml",
   	success: function(xml) {
 		console.log('drawAjaxRoute::Success');
@@ -330,17 +402,13 @@ function drawAjaxRoute() {
 	  		var lon = $(this).attr("lon");
 			var p = new google.maps.LatLng(lat, lon);
 		  	points.push(p);
-			/* _waypoints.push({
-         			location: p,
-         			stopover: false  //stopover is used to show marker on map for waypoints
-         		});*/
 	  		bounds.extend(p);
 	});
 
 	var poly = new google.maps.Polyline({
 	  // use your own style here
 	  path: points,
-	  strokeColor: "#FF00AA",
+	  strokeColor: stroke_color,
 	  strokeOpacity: .7,
 	  strokeWeight: 4
 	});
@@ -354,89 +422,23 @@ function drawAjaxRoute() {
 	//trackMe(startLatLng, stopLatLng, _waypoints);
 }
 
-function trackMe(originAddress, destinationAddress, _waypoints) {
-	//Define a request variable for route .
-    	var _request = '';
-    	console.log('trackMe : ' + originAddress + ' ' + destinationAddress + ' ' + _waypoints); 
-    	console.log(myLatLng);
-    	//This is for more then two locatins
-    	if (_waypoints.length > 0) {
-	        _request = {
-        		origin: originAddress,
-            		destination: destinationAddress,
-            		waypoints: _waypoints,
-            		optimizeWaypoints: false, //set to true if you want google to determine the shortest route or false to use the order specified.
-            		travelMode: google.maps.DirectionsTravelMode.WALKING
-        	};
-    	} else {
-        	//This is for one or two locations. Here noway point is used.
-        	_request = {
-            		origin: originAddress,
-            		destination: destinationAddress,
-            		travelMode: google.maps.DirectionsTravelMode.WALKING
-        	};
-    	}
-	//This will take the request and draw the route and return response and status as output
-	directionsService.route(_request, function (_response, _status) {
-	console.log('Status ' + _status);
-        if (_status == google.maps.DirectionsStatus.OK) {
-            	//_directionsRenderer.setDirections(_response);
-		console.log('Distance : ' + _response.routes[0].legs[0].distance.text);
-		console.log('Duration : ' + _response.routes[0].legs[0].duration.text);
-		console.log('Instruction : ' + _response.routes[0].legs[0].steps[0].instructions);
+function insertDirectionText (distanceText) {
+    	document.getElementById('aprm_map_directions_td').innerHTML = distanceText;
+}
 
-        }
-    });
+function insertDirectionIcon (trafficIcon) {
+	console.log(trafficIcon);
+	var image = document.getElementById('aprm_map_icon_img');
+	image.src = trafficIcon;
 }
 
 function speakDirection() {
 	toast('Distance ' + km_distance + ' Leg: ' + leg + ' I Distance ' + _instructions[leg].distance);
+	insertDirectionText(_instructions[leg].instruction + ' in ' + (_instructions[leg].distance - km_distance) + ' kms');
 	if ( km_distance > (_instructions[leg].distance - 0.2) && km_distance < _instructions[leg].distance ) {
 		console.log('Instruction : ' + _instructions[leg].instruction);
 		speak(_instructions[leg].instruction);
 		leg++;
 	}
 }
-//drawRoute() will help actual draw the route on map.
-function drawRoute(originAddress, destinationAddress, _waypoints) {
-    //Define a request variable for route .
-    var _request = '';
-    console.log('drawRoute : ' + originAddress + ' ' + destinationAddress + ' ' + _waypoints); 
-    console.log(myLatLng);
-    //This is for more then two locatins
-    if (_waypoints.length > 0) {
-        _request = {
-            origin: originAddress,
-            destination: destinationAddress,
-            waypoints: _waypoints,
-            optimizeWaypoints: false, //set to true if you want google to determine the shortest route or false to use the order specified.
-            travelMode: google.maps.DirectionsTravelMode.WALKING
-        };
-    } else {
-        //This is for one or two locations. Here noway point is used.
-        _request = {
-            origin: originAddress,
-            destination: destinationAddress,
-            travelMode: google.maps.DirectionsTravelMode.WALKING
-        };
-    }
-
-    /*_request = {
-            origin: originAddress,
-            destination: _waypoints[0].location,
-            travelMode: google.maps.DirectionsTravelMode.WALKING
-        };*/
- 
-    //This will take the request and draw the route and return response and status as output
-    directionsService.route(_request, function (_response, _status) {
-	console.log('Status ' + _status);
-        if (_status == google.maps.DirectionsStatus.OK) {
-            	_directionsRenderer.setDirections(_response);
-		console.log('Distance : ' + _response.routes[0].legs[0].distance.text);
-		console.log('Duration : ' + _response.routes[0].legs[0].duration.text);
-		console.log('Instruction : ' + _response.routes[0].legs[0].steps[0].instructions);
-		speak(_response.routes[0].legs[0].steps[0].instructions);
-        }
-    });
-}						
 

@@ -114,13 +114,14 @@ html, body, #map {
 }
 
 #aprm_map_td {
-	height: 300px;
+	height: 500px;
 	width: 100%;
 }
 
 #aprm_map_directions_td {
-	height: 300px;
+	height: 15px;
 	width: 100%;
+	color: red;
 }
 
 #aprm_map_footer_td {
@@ -128,5 +129,16 @@ html, body, #map {
 	width: 100%
 	height: 50px;
 }
+
+#aprm_run_details_header {
+	width: 100%;
+	border: 2px solid black;
+}
+
+#aprm_run_details_data_table {
+	width: 100%;
+	border: 2px solid black;
+}
+
 .gm-style img { max-width: none; }
 .gm-style label { width: auto; display: inline; }

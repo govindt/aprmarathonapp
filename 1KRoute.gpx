@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1">
+ <trk>
+  <name>
+   1KRoute2017
+  </name>
+  <trkseg>
+   <trkpt lat="12.91979" lon="77.68925"/>
+   <trkpt lat="12.91969" lon="77.69127"/>
+   <trkpt lat="12.91963" lon="77.69214"/>
+   <trkpt lat="12.91958" lon="77.6928"/>
+   <trkpt lat="12.91959" lon="77.69299"/>
+   <trkpt lat="12.91955" lon="77.69417"/>
+   <trkpt lat="12.91955" lon="77.69417"/>
+   <trkpt lat="12.91959" lon="77.69299"/>
+   <trkpt lat="12.91958" lon="77.6928"/>
+   <trkpt lat="12.91963" lon="77.69214"/>
+   <trkpt lat="12.91977" lon="77.68976"/>
+  </trkseg>
+ </trk>
+</gpx>
