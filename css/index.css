@@ -132,12 +132,22 @@ html, body, #map {
 
 #aprm_run_details_header {
 	width: 100%;
-	border: 2px solid black;
+	padding-top: 12px;
+    	padding-bottom: 12px;
+    	text-align: left;
+    	background-color: #11ADA4;
+    	color: white;
 }
+
+
 
 #aprm_run_details_data_table {
 	width: 100%;
-	border: 2px solid black;
+	padding-top: 12px;
+    	padding-bottom: 12px;
+    	text-align: left;
+    	background-color: white;
+    	color: black;
 }
 
 #start_pause_resume, #reset, #select-race {

@@ -34,8 +34,6 @@ $('#aprm_search_input').on("change", function(event) {
 });
 
 watch_id = null;    // ID of the geolocation
-startLatLng = new google.maps.LatLng(12.920080, 77.688076);  
-stopLatLng = new google.maps.LatLng(12.920080, 77.688076); 		
 myLatLng = null;
 map = null;
 var zoom = 16;
@@ -326,6 +324,9 @@ function load5KPoints() {
          	location: tmpLatLng,
          	stopover: false  //stopover is used to show marker on map for waypoints
          });
+	startLatLng = new google.maps.LatLng(12.920080, 77.688076);  
+	stopLatLng = new google.maps.LatLng(12.920080, 77.688076); 		
+
 	drawRoute(startLatLng, stopLatLng, _waypoints);*/
 	drawAjaxRoute();
 }
@@ -419,7 +420,6 @@ function drawAjaxRoute() {
 	map.fitBounds(bounds);
 	}
 	});
-	//trackMe(startLatLng, stopLatLng, _waypoints);
 }
 
 function insertDirectionText (distanceText) {
