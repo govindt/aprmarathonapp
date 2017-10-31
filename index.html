@@ -20,11 +20,11 @@
 		<div data-role="content" data-theme="d">
 			<nav data-role="navbar" data-theme="d">
 				<ul id="aprm-nav-list-home">
-					<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
-					<li><a href="#about" data-icon="location" id="aprm-li-about-home">About</a></li>
-					<li><a href="#contact" data-icon="info" id="aprm-li-contact-home">Info</a></li>
-					<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-home">Race</a></li>
-					<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-home">Channel</a></li>
+					<li><a href="#home" data-icon="home" data-mini="true" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
+					<li><a href="#about" data-icon="location" data-mini="true" id="aprm-li-about-home">About</a></li>
+					<li><a href="#contact" data-icon="info" data-mini="true" id="aprm-li-contact-home">Info</a></li>
+					<li><a href="#racetrack" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race</a></li>
+					<li><a href="#channelvidz" data-icon="video" data-mini="true" id="aprm-li-channel-home">Channel</a></li>
 				</ul>
 			</nav>
 			<h3>Welcome to APR Marathon 2017</h3>
@@ -162,18 +162,18 @@
 					</div>
 				</td>
 				<td id="aprm_start_pause_header">
-					<a href="#racetrack" data-icon="check" id="start_pause_resume" data-mini="true">Start</a>
+					<a href="#racetrack" data-icon="check" data-iconpos="top" id="start_pause_resume" data-mini="true">Start</a>
 				</td>
 				<td id="aprm_time_distance_header">
 					<div id="time">
-					<span id="hours">00</span> :
-					<span id="minutes">00</span> :
-   					<span id="seconds">00</span><br>
-					<span id="kms">0.0</span>
+						<center><span id="hours">00</span> :
+						<span id="minutes">00</span> :
+   						<span id="seconds">00</span><br></center>
+						<center><span id="kms">0.0</span></center>
 					</div>
 				</td>
 				<td id="aprm_reset_header">
-					<a href="#racetrack" data-icon="delete" id="reset" data-mini="true">Reset</a>
+					<a href="#racetrack" data-icon="delete" data-iconpos="top" id="reset" data-mini="true">Reset</a>
 				</td>
 				</tr>
 			</table>
@@ -207,6 +207,7 @@
     <script type="text/javascript" src="js/racestopwatch.js"></script>
     <script type="text/javascript" src="speakClient.js"></script>
     <script type="text/javascript" src="js/jquery.googlemap.js"></script>
+
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I"></script>
 
 </body>
