@@ -5,17 +5,20 @@
    1KRoute2017
   </name>
   <trkseg>
-   <trkpt lat="12.91979" lon="77.68925"/>
+   <trkpt lat="12.91981" lon="77.68903"/>
+   <trkpt lat="12.91979" lon="77.68921"/>
    <trkpt lat="12.91969" lon="77.69127"/>
-   <trkpt lat="12.91963" lon="77.69214"/>
    <trkpt lat="12.91958" lon="77.6928"/>
    <trkpt lat="12.91959" lon="77.69299"/>
-   <trkpt lat="12.91955" lon="77.69417"/>
-   <trkpt lat="12.91955" lon="77.69417"/>
-   <trkpt lat="12.91959" lon="77.69299"/>
-   <trkpt lat="12.91958" lon="77.6928"/>
-   <trkpt lat="12.91963" lon="77.69214"/>
-   <trkpt lat="12.91977" lon="77.68976"/>
+   <trkpt lat="12.91957" lon="77.69359"/>
+   <trkpt lat="12.91957" lon="77.69361"/>
+   <trkpt lat="12.91957" lon="77.69361"/>
+   <trkpt lat="12.91959" lon="77.69285"/>
+   <trkpt lat="12.91958" lon="77.69271"/>
+   <trkpt lat="12.91963" lon="77.69206"/>
+   <trkpt lat="12.91979" lon="77.68929"/>
+   <trkpt lat="12.91979" lon="77.68908"/>
+   <trkpt lat="12.91981" lon="77.68903"/>
   </trkseg>
  </trk>
 </gpx>

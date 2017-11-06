@@ -16,16 +16,16 @@ $(document).bind("pageinit", function() {
 	var channel = 'UC-0QtxHQwuQSHebab3LHAug';
 	console.log('Channel: ' + channel);
 	getPlaylist(channel);
-	//showRaceTrack();
 });
 
 $(document).on('click', '#racetrack', function() {
 	showRaceTrack();
-	//refreshMap();
 });
 
-var spreadSheetId = '1pdNANQ6_wdtVfIw_aLvHXxNddcHzM2oK0frrIJuVYtI';
-var spreadSheetRange = '5KM%20Runners!A:K';
+//var spreadSheetId = '1pdNANQ6_wdtVfIw_aLvHXxNddcHzM2oK0frrIJuVYtI';
+//var spreadSheetRange = '5KM%20Runners!A:K';
+var spreadSheetId = '1I1nR1tkdEp976nYlqFqRIwRgx9MrJeT6vM2Oupl8KMQ';
+var spreadSheetRange = 'AllRacesForApp!A:K';
 var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
 var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
 
@@ -41,7 +41,6 @@ directionsService = null;
 var _directionsRenderer;
 marker = null;
 var trackingData = [];
-var _waypoints = new Array();
 var _instructions = new Array();
 var distanceTotal = 0;
 var runningTotal = 0;
@@ -121,8 +120,10 @@ function getPlaylist(channel) {
 
 
 function showVideo(id) {
+	//<object><param name="movie" value="https://www.youtube.com/v/'+video_embeded+'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+video_embeded+'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>
 	$('#videologo').hide();
-	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+	//var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+	var output = '<object><param name="movie" value="https://www.youtube.com/v/'+ id +'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+ id +'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>';
 	console.log('Showing Video ' + output);
 	$('#showVideo').html(output);
 }
@@ -169,9 +170,8 @@ function showRaceTrack() {
             		mapTypeId: google.maps.MapTypeId.ROADMAP
         	};
         	map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-		load5KPoints();
+		loadMapInstructions();
 		_directionsRenderer.setMap(map);
-		//_directionsRenderer.setPanel(document.getElementById('directions-canvas'));
      	}
 }
 
@@ -224,7 +224,6 @@ function startTracking() {
      	});
      	marker.setPosition(myLatLng);
 	trackingData.push(myLatLng);	
-	//refreshMap();
 	console.log('Tracking Data ' + trackingData);
 	speakDirection();
 	if ( trackingData != null && trackingData.length > 1) {
@@ -263,71 +262,141 @@ function stopTracking() {
 	leg = 1;
 }
 
-function load5KPoints() {
-	console.log('load5KPoints');
+function loadMapInstructions() {
+	console.log('loadMapInstructions');
 	race = $("#select-race").val();
 	console.log('Race Selected : ' + race);
-	_waypoints = new Array();
 	_instructions = new Array();
-	tmpLatLng = new google.maps.LatLng(12.9195035, 77.6946959); // Clubhouse gate
-	_waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-	});
-	_instructions.push({
-		distance: 0.6,
-		leg: 1,
-		instruction: 'Make a left turn into the Adarsh Palm Retreat Gate'
-	});
-	tmpLatLng = new google.maps.LatLng(12.921900, 77.694703); // Clubhouse gate
-	_waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-        });
-	_instructions.push({
-		distance: 0.86,
-		leg: 2,
-		instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
-	});
-	tmpLatLng = new google.maps.LatLng(12.922138, 77.688038); // Clubhouse gate
-	_waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-        });
-	_instructions.push({
-		distance: 1.59,
-		leg: 3,
-		instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
-	});
-	/*tmpLatLng =  new google.maps.LatLng(12.922324, 77.691749); // Lane 6
-	 _waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-         });
-	tmpLatLng =  new google.maps.LatLng(12.920756, 77.685507); // RMZ Ecoworld opposite
-	 _waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-         });
-	tmpLatLng =  new google.maps.LatLng(12.928954, 77.684692); // Intel
-	 _waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-         });
-	tmpLatLng =  new google.maps.LatLng(12.922098, 77.682877); // Inside RMZ Ecoworld 1
-	 _waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-         });
-	tmpLatLng =  new google.maps.LatLng(12.921764, 77.684250); // Inside RMZ Ecoworld 2
-	 _waypoints.push({
-         	location: tmpLatLng,
-         	stopover: false  //stopover is used to show marker on map for waypoints
-         });
-	startLatLng = new google.maps.LatLng(12.920080, 77.688076);  
-	stopLatLng = new google.maps.LatLng(12.920080, 77.688076); 		
-
-	drawRoute(startLatLng, stopLatLng, _waypoints);*/
+	if ( race == 1 ) {
+		_instructions.push({
+			distance: 0.5,
+			leg: 1,
+			instruction: 'Make an U turn at the U turn point'
+		});
+	}
+	else if ( race == 5 || race == 10 ) {
+		_instructions.push({
+			distance: 0.6,
+			leg: 1,
+			instruction: 'Make a left turn into the Adarsh Palm Retreat Gate'
+		});
+		_instructions.push({
+			distance: 0.86,
+			leg: 2,
+			instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
+		});
+		_instructions.push({
+			distance: 1.59,
+			leg: 3,
+			instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
+		});
+		_instructions.push({
+			distance: 1.81,
+			leg: 4,
+			instruction: 'Make a Right turn Adarsh Project Office Road'
+		});
+		_instructions.push({
+			distance: 2.07,
+			leg: 5,
+			instruction: 'Make a right turn in front of the bay'
+		});
+		_instructions.push({
+			distance: 3.08,
+			leg: 6,
+			instruction: 'Make a U turn at the U turn point'
+		});
+		_instructions.push({
+			distance: 3.85,
+			leg: 7,
+			instruction: 'Make a right turn into the RMZ Eco world complex'
+		});
+		_instructions.push({
+			distance: 4.14,
+			leg: 8,
+			instruction: 'Make a left turn'
+		});
+		_instructions.push({
+			distance: 4.2,
+			leg: 9,
+			instruction: 'Make a left turn'
+		});
+		_instructions.push({
+			distance: 4.45,
+			leg: 10,
+			instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
+		});
+		if ( race == 5 ) {
+			_instructions.push({
+				distance: 4.79,
+				leg: 11,
+				instruction: 'Make a left turn towards 5KM finish line'
+			});
+		} else { // 10KM
+			_instructions.push({
+				distance: 4.79,
+				leg: 11,
+				instruction: 'Make a loop and prepare for the 2nd loop'
+			});
+			_instructions.push({
+				distance: 5.75,
+				leg: 12,
+				instruction: 'Make a left turn into the Adarsh Palm Retreat Gate'
+			});
+			_instructions.push({
+				distance: 6.02,
+				leg: 13,
+				instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
+			});
+			_instructions.push({
+				distance: 6.75,
+				leg: 14,
+				instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
+			});
+			_instructions.push({
+				distance: 6.99,
+				leg: 15,
+				instruction: 'Make a Right turn Adarsh Project Office Road'
+			});
+			_instructions.push({
+				distance: 7.25,
+				leg: 16,
+				instruction: 'Make a right turn in front of the bay'
+			});
+			_instructions.push({
+				distance: 8.24,
+				leg: 17,
+				instruction: 'Make a U turn at the U turn point'
+			});
+			_instructions.push({
+				distance: 9.0,
+				leg: 18,
+				instruction: 'Make a right turn into the RMZ Eco world complex'
+			});
+			_instructions.push({
+				distance: 9.27,
+				leg: 19,
+				instruction: 'Make a left turn'
+			});
+			_instructions.push({
+				distance: 9.34,
+				leg: 20,
+				instruction: 'Make a left turn'
+			});
+			_instructions.push({
+				distance: 9.58,
+				leg: 21,
+				instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
+			});
+			_instructions.push({
+				distance: 9.91,
+				leg: 11,
+				instruction: 'Make a left turn towards 10KM finish line'
+			});
+		}
+	} else if ( race == 21.1 ) {
+	} else
+		console.log('Unknown Race');
+	
 	drawAjaxRoute();
 }
 
@@ -437,8 +506,10 @@ function speakDirection() {
 	insertDirectionText(_instructions[leg].instruction + ' in ' + (_instructions[leg].distance - km_distance) + ' kms');
 	if ( km_distance > (_instructions[leg].distance - 0.2) && km_distance < _instructions[leg].distance ) {
 		console.log('Instruction : ' + _instructions[leg].instruction);
-		speak(_instructions[leg].instruction);
-		leg++;
+		if ( typeof _instructions != 'undefined' || _instructions != null ) {
+			speak(_instructions[leg].instruction);
+			leg++;
+		}
 	}
 }
 
