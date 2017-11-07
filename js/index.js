@@ -124,12 +124,16 @@ function showVideo(id) {
 	// <iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/uFyaDBmvR8c?showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
-//	if ( navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-		output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?showinfo=0" frameborder="0" allowfullscreen></iframe>"';
+		output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?showinfo=0" frameborder="0" allowfullscreen></iframe>';
+		var video = document.getElementById("showVideo");
+		video.setAttribute('webkit-playsinline', 'webkit-playsinline');// Fix fullscreen problem on IOS 8 and 9
+		video.setAttribute('playsinline', 'playsinline');// Fix fullscreen problem on IOS 10
+		$('#showVideo').html(output);
+	else {
+		$('#showVideo').html(output);
 	}
 	console.log('Showing Video ' + output);
-	$('#showVideo').html(output);
 }
 
 
