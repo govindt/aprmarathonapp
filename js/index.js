@@ -122,8 +122,11 @@ function getPlaylist(channel) {
 function showVideo(id) {
 	//<object><param name="movie" value="https://www.youtube.com/v/'+video_embeded+'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+video_embeded+'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>
 	$('#videologo').hide();
-	//var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
-	var output = '<object><param name="movie" value="https://www.youtube.com/v/'+ id +'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+ id +'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>';
+	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+//	if ( navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
+	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
+		output = '<object><param name="movie" value="https://www.youtube.com/v/'+ id +'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+ id +'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>';
+	}
 	console.log('Showing Video ' + output);
 	$('#showVideo').html(output);
 }
@@ -143,7 +146,10 @@ function showRaceTrack() {
 		_directionsRenderer = new google.maps.DirectionsRenderer();
 		_directionsRenderer.setOptions({
 	       		draggable: false,
-			scrollwheel:false
+			scrollwheel:false,
+			zoomControl: false,
+			disableDoubleClickZoom: true,
+			disableDefaultUI: true
     		});
         	function success(pos) {
 		    	console.log('success method in showRaceTrack' + pos.coords.latitude);
@@ -208,7 +214,7 @@ function startTracking() {
      	watch_id = navigator.geolocation.watchPosition(function(position){
      	myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	console.log('MyLatLng ' + myLatLng);
-     	map.setCenter(myLatLng);
+     	//map.setCenter(myLatLng);
 	deleteMarker();
 	if ( trackerIcon == null ) {
 		trackerIcon = {
