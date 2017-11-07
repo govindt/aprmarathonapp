@@ -120,12 +120,13 @@ function getPlaylist(channel) {
 
 
 function showVideo(id) {
-	//<object><param name="movie" value="https://www.youtube.com/v/'+video_embeded+'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+video_embeded+'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>
 	$('#videologo').hide();
+	// <iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/uFyaDBmvR8c?showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
 //	if ( navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-		output = '<object><param name="movie" value="https://www.youtube.com/v/'+ id +'&hl=en_US&feature=player_embedded&version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/'+ id +'?suggestedQuality=medium&hl=en_US&feature=player_embedded&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always"></embed></object>';
+		output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?showinfo=0" frameborder="0" allowfullscreen></iframe>"';
 	}
 	console.log('Showing Video ' + output);
 	$('#showVideo').html(output);
