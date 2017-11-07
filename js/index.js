@@ -149,7 +149,6 @@ function showRaceTrack() {
 			scrollwheel:false,
 			zoomControl: false,
 			disableDoubleClickZoom: true,
-			disableDefaultUI: true
     		});
         	function success(pos) {
 		    	console.log('success method in showRaceTrack' + pos.coords.latitude);
@@ -214,7 +213,7 @@ function startTracking() {
      	watch_id = navigator.geolocation.watchPosition(function(position){
      	myLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	console.log('MyLatLng ' + myLatLng);
-     	//map.setCenter(myLatLng);
+     	map.setCenter(myLatLng);
 	deleteMarker();
 	if ( trackerIcon == null ) {
 		trackerIcon = {
