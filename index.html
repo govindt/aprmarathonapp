@@ -18,6 +18,19 @@
     <div class="app">
 	<div data-role="page" id="home">
 		<div data-role="content" data-theme="d">
+			<div data-role="panel" id="navpanel" data-theme"a" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="false">
+					<a href="#home" data-role="button" data-icon="home" data-mini="true" class="ui-btn-active" id="aprm-li-home-home">Home</a>
+					<a href="#about" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">About</a>
+					<a href="#contact" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contact-home">Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race</a>
+					<a href="#channelvidz" data-role="button" data-icon="video" data-mini="true" id="aprm-li-channel-home">Channel</a>
+				</div>
+			</div>
+			<div id="header" data-role="header" data-theme="b">
+       				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;" href="#navpanel">Menu</a>
+			</div>
+<!--
 			<nav data-role="navbar" data-theme="d">
 				<ul id="aprm-nav-list-home">
 					<li><a href="#home" data-icon="home" data-mini="true" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
@@ -27,6 +40,7 @@
 					<li><a href="#channelvidz" data-icon="video" data-mini="true" id="aprm-li-channel-home">Channel</a></li>
 				</ul>
 			</nav>
+-->
 			<h3>Welcome to APR Marathon 2017</h3>
 			<img class="banner" src="img/apr-marathon-trust.png">
 			<center>
@@ -53,29 +67,45 @@
 		<div data-role="content" data-theme="d">
 			<nav data-role="navbar" data-theme="d">
 			<ul id="aprm-nav-list-about">
-				<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
-				<li><a href="#about" data-icon="location" id="aprm-li-about-home">About</a></li>
+				<li><a href="#home" data-icon="home" id="aprm-li-home-home">Home</a></li>
+				<li><a href="#about" data-icon="location" class="ui-btn-active" id="aprm-li-about-home">About</a></li>
 				<li><a href="#contact" data-icon="info" id="aprm-li-contact-home">Info</a></li>
 				<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-home">Race</a></li>
 				<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-home">Channel</a></li>
 			</ul>
 			</nav>
-			<h3>APR Marathon Event Details</h3>
-			<img class="banner" src="img/apr-marathon-trust.png">
-			<div class="map">
-<!--
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3888.769280652244!2d77.68952281482147!3d12.922545090888152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1505212264449" width="450" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
--->
-
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3888.769280652244!2d77.68952281482147!3d12.922545090888152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1505212264449" style="width:100%; height:100%;">					</iframe>
-			</div>
-			<h3>Location</h3>
+			<h3>APR Marathon Expo Details</h3>
 			<ul>
-				<li><strong>APR Charitable Trust</strong></li>
-				<li>Villa Maintenance Office, Adarsh Palm Retreat</li>
-				<li>Outer Ring Road, Devarabisanahalli</li>
-				<li>Bangalore, 560103</li>
-				<li><strong>Email:</strong>AprMarathonSupport@googlegroups.com</li>
+				<li class="aprm_bold">APR Marathon Registration and Bib Pickup:</li>
+				<div class="map">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8236984685304!2d77.68598091417867!3d12.919050219526216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae130f50bd46ad%3A0x72598e72d90ff692!2sAPR+project+office!5e0!3m2!1sen!2sin!4v1510066887044" style="width:100%; height:100%;frameborder: 0; border:0"></iframe>
+				</div>
+				Apr Project Office,
+				Outer Ring Road, Devarabisanahalli,
+				Bangalore, 560103.
+				<li class="aprm_bold">Race timing:</li>
+				5:45 AM - Half Marathon<br>
+				6:00 AM - 10 K<br>
+				8:15 AM - 5 K<br>
+				9:00 AM - 1 K<br>
+				<li class="aprm_bold">Race Route:</li>
+				<div class="aprm_red_bold">
+				Half Marathon:
+				</div>
+				<img class="banner" src="img/21KM_route.png">
+				<div class="aprm_red_bold">
+				10KM:
+				</div>
+				<img class="banner" src="img/10KM_route.png">	
+				<div class="aprm_red_bold">	
+				5KM:
+				</div>
+				<img class="banner" src="img/5KM_route.png">
+				<div class="aprm_red_bold">
+				1KM:
+				</div>
+				<img class="banner" src="img/1KM_route.png">
+				<li class="aprm_bold">Contact: <a href="mailto:AprMarathonSupport@googlegroups.com">AprMarathonSupport@googlegroups.com</a></li>
 			</ul>
 		</div>
 		<footer data-role="footer">
@@ -86,9 +116,9 @@
 		<div data-role="content" data-theme="d">
 			<nav data-role="navbar" data-theme="d">
 			<ul id="aprm-nav-list-contact">
-				<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
+				<li><a href="#home" data-icon="home" id="aprm-li-home-home">Home</a></li>
 				<li><a href="#about" data-icon="location" id="aprm-li-about-home">About</a></li>
-				<li><a href="#contact" data-icon="info" id="aprm-li-contact-home">Info</a></li>
+				<li><a href="#contact" data-icon="info"  class="ui-btn-active" id="aprm-li-contact-home">Info</a></li>
 				<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-home">Race</a></li>
 				<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-home">Channel</a></li>
 			</ul>
@@ -124,15 +154,15 @@
 		<div data-role="content" data-theme="d">
 			<nav data-role="navbar" data-theme="d">
 			<ul id="aprm-nav-list-video">
-				<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
+				<li><a href="#home" data-icon="home" id="aprm-li-home-home">Home</a></li>
 				<li><a href="#about" data-icon="location" id="aprm-li-about-home">About</a></li>
 				<li><a href="#contact" data-icon="info" id="aprm-li-contact-home">Info</a></li>
 				<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-home">Race</a></li>
-				<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-home">Channel</a></li>
+				<li><a href="#channelvidz" data-icon="video" class="ui-btn-active" id="aprm-li-channel-home">Channel</a></li>
 			</ul>
 			</nav>
 			<img id="videologo" src="img/videologo.png">
-			<div id="showVideo" webkit-playsinline playsinline></div>
+			<div id="showVideo"></div>
 			<br>
 			<br>
 			<ul id="vidlist" data-role="listview" data-inset="true"></ul>
@@ -146,10 +176,10 @@
 		<div data-role="content">
 			<nav data-role="navbar" data-theme="d">
 				<ul id="aprm-nav-list-race">
-					<li><a href="#home" data-icon="home" class="ui-btn-active" id="aprm-li-home-home">Home</a></li>
+					<li><a href="#home" data-icon="home" id="aprm-li-home-home">Home</a></li>
 					<li><a href="#about" data-icon="location" id="aprm-li-about-home">About</a></li>
 					<li><a href="#contact" data-icon="info" id="aprm-li-contact-home">Info</a></li>
-					<li><a href="#racetrack" data-icon="navigation" id="aprm-li-race-home">Race</a></li>
+					<li><a href="#racetrack" data-icon="navigation" class="ui-btn-active" id="aprm-li-race-home">Race</a></li>
 					<li><a href="#channelvidz" data-icon="video" id="aprm-li-channel-home">Channel</a></li>
 				</ul>
 			</nav>

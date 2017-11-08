@@ -38,16 +38,11 @@
 	margin: 15px 0 15px 0;
 }
 
-html, body {
+html, body, #map {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-}
-
-#map {
-	width:450;
-	height:300;
 }
 
 #racetrack, #map-canvas { width: 100%; height: 100%; padding: 0; }
@@ -75,24 +70,24 @@ html, body {
         width: 390px;
         overflow: auto;
 }
-#aprm-li-home.ui-btn-active {
-    background:#11A3AE !important;
+#aprm-li-home-home.ui-btn-active {
+    background:#11ADA4 !important;
 }
 
-#aprm-li-about.ui-btn-active {
-    background:#11A3AE !important;
+#aprm-li-about-home.ui-btn-active {
+    background:#11ADA4 !important;
 }
 
-#aprm-li-contact.ui-btn-active {
-    background:#11A3AE !important;
+#aprm-li-contact-home.ui-btn-active {
+    background:#11ADA4 !important;
 }
 
-#aprm-li-channel.ui-btn-active {
-    background:#11A3AE !important;
+#aprm-li-channel-home.ui-btn-active {
+    background:#11ADA4 !important;
 }
 
-#aprm-li-race.ui-btn-active {
-    background:#11A3AE !important;
+#aprm-li-race-home.ui-btn-active {
+    background:#11ADA4 !important;
 }
 
 #controls{
@@ -158,5 +153,35 @@ html, body {
 #start_pause_resume, #reset, #select-race {
 	font-size: 14.5px;
 }
+
+.aprm_bold {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.aprm_red_bold {
+	font-weight: bold;
+	color: red;
+}
 .gm-style img { max-width: none; }
 .gm-style label { width: auto; display: inline; }
+
+
+/*this block should go in the styles.css file*/
+.ui-panel-inner {
+	padding:0px; /*make the buttons flush edge to edge*/
+}
+
+.ui-controlgroup {
+	margin:0; /*make the buttons flush to the top*/
+}
+
+#header {
+	background-color: #bc0116;
+	height:54px;
+}
+
+#bars-button {
+	background-color: #11ADA4;
+	margin:7px;
+}
