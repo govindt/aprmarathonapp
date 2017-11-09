@@ -129,12 +129,12 @@ function showVideo(id) {
 	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
 		//output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?autoplay=1" frameborder="0"></iframe>';
-		var url = "https://www.youtube.com/embed/" + id;
-		output = "";
-		output += '<video id="someVideo" width="100%" height="221px">';
-		output += '<source src="' + url + '" type="video/mp4"/>';
-		output += '</video>';
-		toast(output);
+		var url = "http://www.youtube.com/watch?v=" + id;
+		var ios_output = "";
+		ios_output += '<video id="someVideo" width="640" height="360">';
+		ios_output += '<source src="' + url + '" type="video/youtube" />';
+		ios_output += '</video>';
+		toast(ios_output);
 		$("#showvideo").html(output);
 		$('#someVideo').attr('src', url);
 		$('#someVideo')[0].load();
