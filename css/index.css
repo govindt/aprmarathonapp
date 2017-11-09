@@ -177,11 +177,14 @@ html, body, #map {
 }
 
 #header {
-	background-color: #bc0116;
+	background-color: white;
 	height:54px;
+	border:0px;
 }
 
 #bars-button {
-	background-color: #11ADA4;
+	background-color: white;
+	color: black;
 	margin:7px;
+	border:0px;
 }

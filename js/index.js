@@ -13,6 +13,11 @@ $(document).on('click', '#vidlist li', function() {
 
 
 $(document).bind("pageinit", function() {
+	$("[data-role=panel] a").on("click", function () {
+		if($(this).attr("href") == "#"+$.mobile.activePage[0].id) {
+			$("[data-role=panel]").panel("close");
+		}
+	});
 	var channel = 'UC-0QtxHQwuQSHebab3LHAug';
 	console.log('Channel: ' + channel);
 	getPlaylist(channel);
