@@ -68,6 +68,7 @@ function toast(message) {
     $toast.css({
         display: 'block', 
         background: '#fff',
+	color: black,
         opacity: 0.90, 
         position: 'fixed',
         padding: '7px',
