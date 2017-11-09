@@ -128,7 +128,7 @@ function showVideo(id) {
 	$('#videologo').hide();
 	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-		output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?showinfo=0" frameborder="0" allowfullscreen></iframe>';
+		output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?autoplay=1" frameborder="0"></iframe>';
 	}
 	$('#showVideo').html(output);
 	console.log('Showing Video ' + output);
