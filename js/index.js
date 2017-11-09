@@ -135,14 +135,14 @@ function showVideo(id) {
 		ios_output += '<video id="someVideo" width="640" height="360">';
 		ios_output += '<source src="' + url + '" type="video/youtube" />';
 		ios_output += '</video>';
-		toast(ios_output);
-		$("#showvideo").html(output);
+		$("#showvideo").html(ios_output);
 		$('#someVideo').attr('src', url);
 		$('#someVideo')[0].load();
+		console.log('IOS Showing Video ' + ios_output);
 	} else {
+		console.log('Showing Video ' + output);
 		$('#showVideo').html(output);
 	}
-	console.log('Showing Video ' + output);
 }
 
 
