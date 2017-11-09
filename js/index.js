@@ -509,7 +509,7 @@ function insertDirectionIcon (trafficIcon) {
 
 function speakDirection() {
 	//toast('Distance ' + km_distance + ' Leg: ' + leg + ' I Distance ' + _instructions[leg].distance);
-	insertDirectionText(_instructions[leg].instruction + ' in ' + (_instructions[leg].distance - km_distance) + ' kms');
+	insertDirectionText(_instructions[leg].instruction + ' in ' + (_instructions[leg].distance - km_distance).toFixed(2) + ' kms');
 	if ( km_distance > (_instructions[leg].distance - 0.2) && km_distance < _instructions[leg].distance ) {
 		console.log('Instruction : ' + _instructions[leg].instruction);
 		if ( typeof _instructions != 'undefined' || _instructions != null ) {
