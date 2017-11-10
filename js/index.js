@@ -133,11 +133,19 @@ function showVideo(id) {
 		var url = "http://www.youtube.com/watch?v=" + id;
 		var ios_output = "";
 		ios_output += '<video id="someVideo" width="640" height="360">';
-		ios_output += '<source src="' + url + '" type="video/youtube" />';
+		ios_output += '<source id="ytvideo" src="' + url + '" type="video/youtube" />';
 		ios_output += '</video>';
 		$("#showvideo").html(ios_output);
-		$('#someVideo').attr('src', url);
-		$('#someVideo')[0].load();
+		var video = document.getElementById('someVideo');
+		console.log('IOS Video' + video);
+		var ytvideo = document.getElementById('ytvideo');
+		console.log('IOS Video ' + ytvideo);
+		d = new Date();
+		ytvideo.src += "?" + d.getTime();
+		console.log('IOS Video 1' + ytvideo);		
+		video.load();
+		//$('#someVideo').attr('src', url);
+		//$('#someVideo')[0].load();
 		console.log('IOS Showing Video ' + ios_output);
 	} else {
 		console.log('Showing Video ' + output);
