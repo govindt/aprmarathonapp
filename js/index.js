@@ -134,7 +134,10 @@ function showVideo(id) {
 		$('#player').html(output);
 		var video = document.getElementById('iosvideo');
 		console.log('Video ' + video);
+		video.load();
+		console.log('Video loaded');
 		video.play();
+		console.log('Video Played');
 	} else {
 		console.log('Showing Video ' + output);
 		$('#player').html(output);
