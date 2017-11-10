@@ -127,32 +127,16 @@ function getPlaylist(channel) {
 
 function showVideo(id) {
 	$('#videologo').hide();
-	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+	//var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+	var output = '<iframe width="240" height="180" src="http://www.youtube.com/embed/' + id + '" allowfullscreen></iframe>';
+	
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-		output = '<iframe style="width:100%; height:221px;" src="https://www.youtube.com/embed/' + id + '?autoplay=1" frameborder="0"></iframe>';
-		/*var url = "http://www.youtube.com/watch?v=" + id;
-		var ios_output = "";
-		ios_output += '<video id="someVideo" width="640" height="360">';
-		ios_output += '<source id="ytvideo" src="' + url + '" type="video/youtube" />';
-		ios_output += '</video>';
-		$("#showvideo").html(ios_output);
-		var video = document.getElementById('someVideo');
-		console.log('IOS Video' + video);
-		var ytvideo = document.getElementById('ytvideo');
-		console.log('IOS Video ' + ytvideo);
-		d = new Date();
-		ytvideo.src += "?" + d.getTime();
-		console.log('IOS Video 1' + ytvideo);		
-		video.load();
-		//$('#someVideo').attr('src', url);
-		//$('#someVideo')[0].load();
-		console.log('IOS Showing Video ' + ios_output);*/
 		console.log('IOS Showing Video ' + output);
-		$('#showVideo').html(output);
+		$('#player').html(output);
 	} else {
 		console.log('Showing Video ' + output);
-		$('#showVideo').html(output);
-	}
+		$('#player').html(output);
+	} 
 }
 
 
