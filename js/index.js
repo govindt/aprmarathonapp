@@ -118,8 +118,10 @@ function getPlaylist(channel) {
 					if ( isIos == false ) {
 						$('#vidlist').append('<li videoId="'+videoId+'"><div><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
 					} else {
-						$('#vidlist').append('<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick="loadPage(https://www.youtube.com/watch?v=' + videoId + ')" href="#"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
+						var str = '<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick=loadPage("https://www.youtube.com/watch?v=' + videoId + ')" href="#"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>';
+						$('#vidlist').append(str);
 					}
+					console.log(str);
 					$('#vidlist:visible').listview('refresh');
 					if ( notSet ) {
 						var aprLastUploaded = localStorage.getItem('aprLastUploaded');
@@ -140,7 +142,8 @@ function showVideo(id) {
 	$('#videologo').hide();
 	var output = '<iframe width="100%" height="250" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-		output='<video webkit-playsinline id="iosvideo" width="320" height="240" src="https://www.youtube.com/watch?v=' + id + '" controls>Your browser does not support the video tag.</video>'
+		console.log('Do Nothing);
+		/*output='<video webkit-playsinline id="iosvideo" width="320" height="240" src="https://www.youtube.com/watch?v=' + id + '" controls>Your browser does not support the video tag.</video>'
 		console.log('IOS Showing Video ' + output);
 		$('#player').html(output);
 		var video = document.getElementById('iosvideo');
@@ -148,7 +151,7 @@ function showVideo(id) {
 		video.load();
 		console.log('Video loaded');
 		video.play();
-		console.log('Video Played');
+		console.log('Video Played');*/
 	} else {
 		console.log('Showing Video ' + output);
 		$('#player').html(output);
