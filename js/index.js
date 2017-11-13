@@ -1,6 +1,10 @@
+var isIos = false;
 $(document).ready(function() {
-	document.addEventListener('deviceready', onDeviceReady,false);
-	
+	document.addEventListener('deviceready', onDeviceReady,false);	
+	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
+		isIos = true;
+	}
+	console.log('isIos : ' + isIos);
 });
 
 function onDeviceReady() {
@@ -108,7 +112,11 @@ function getPlaylist(channel) {
 				thumb = data.items[i].snippet.thumbnails.default.url;
 				if ( videoId ) {
 					console.log('VideoId: ' + videoId);
-					$('#vidlist').append('<li videoId="'+videoId+'"><div><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
+					if ( isIos == false ) {
+						$('#vidlist').append('<li videoId="'+videoId+'"><div><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
+					} else {
+						$('#vidlist').append('<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick="loadPage(1)" href="https://www.youtube.com/watch?v='+videoId+'"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
+					}
 					$('#vidlist:visible').listview('refresh');
 					if ( notSet ) {
 						var aprLastUploaded = localStorage.getItem('aprLastUploaded');
