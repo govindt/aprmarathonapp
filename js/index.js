@@ -56,7 +56,7 @@ var runningTotal = 0;
 var km_distance = 0;
 var trackerIcon = null;
 var paused = false;
-var leg = 1;
+var leg = 0;
 var race = 5;
 
 function checkEmpty(myVar) {	
@@ -289,7 +289,8 @@ function stopTracking() {
 	runningTotal = 0;
 	setDistance(0.0);
 	deleteMarker();
-	leg = 1;
+	leg = 0;
+	insertDirectionText('');
 }
 
 function loadMapInstructions() {
@@ -424,6 +425,131 @@ function loadMapInstructions() {
 			});
 		}
 	} else if ( race == 21.1 ) {
+		_instructions.push({
+			distance: 0.6,
+			leg: 1,
+			instruction: 'Make a Right turn into the Adarsh Palm Retreat Phase 3'
+		});
+		_instructions.push({
+			distance: 0.81,
+			leg: 2,
+			instruction: 'Make a Right turn at the next T junction'
+		});
+		_instructions.push({
+			distance: 1.03,
+			leg: 3,
+			instruction: 'Make a Left turn at the next T junction'
+		});
+		_instructions.push({
+			distance: 1.24,
+			leg: 4,
+			instruction: 'Make an about turn at the next dead end'
+		});
+		_instructions.push({
+			distance: 1.44,
+			leg: 5,
+			instruction: 'Make a Right turn at the next T junction'
+		});
+		_instructions.push({
+			distance: 1.67,
+			leg: 6,
+			instruction: 'Make a Left turn towards Phase 3 exit gate'
+		});
+		_instructions.push({
+			distance: 1.9,
+			leg: 7,
+			instruction: 'Continue straight towards the Clubhouse gate'
+		});
+		_instructions.push({
+			distance: 2.15,
+			leg: 8,
+			instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
+		});
+		_instructions.push({
+			distance: 2.87,
+			leg: 9,
+			instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
+		});
+		_instructions.push({
+			distance: 3.12,
+			leg: 10,
+			instruction: 'Make a Right turn Adarsh Project Office Road'
+		});
+		_instructions.push({
+			distance: 3.39,
+			leg: 11,
+			instruction: 'Make a right turn in front of the bay'
+		});
+		_instructions.push({
+			distance: 4.43,
+			leg: 12,
+			instruction: 'Make a U turn at the U turn point'
+		});
+		_instructions.push({
+			distance: 5.24,
+			leg: 13,
+			instruction: 'Make a right turn into the RMZ Eco world complex'
+		});
+		_instructions.push({
+			distance: 5.53,
+			leg: 14,
+			instruction: 'Make a left turn'
+		});
+		_instructions.push({
+			distance: 5.6,
+			leg: 15,
+			instruction: 'Make a left turn'
+		});
+		_instructions.push({
+			distance: 5.84,
+			leg: 16,
+			instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
+		});
+		_instructions.push({
+			distance: 6.3,
+			leg: 17,
+			instruction: 'Proceed straight towards the T Junction'
+		});
+		_instructions.push({
+			distance: 6.78,
+			leg: 18,
+			instruction: 'Make a right'
+		});
+		_instructions.push({
+			distance: 6.94,
+			leg: 19,
+			instruction: 'Make a left'
+		});
+		_instructions.push({
+			distance: 7.97,
+			leg: 20,
+			instruction: 'Make an about turn'
+		});
+		_instructions.push({
+			distance: 9,
+			leg: 21,
+			instruction: 'Make a right'
+		});
+		_instructions.push({
+			distance: 9.17,
+			leg: 22,
+			instruction: 'Make a left'
+		});
+		_instructions.push({
+			distance: 9.8,
+			leg: 23,
+			instruction: 'Make a right and get ready for the second loop'
+		});
+		_instructions.push({
+			distance: 10.07,
+			leg: 23,
+			instruction: 'Proceed straight of the second loop'
+		});
+		_instructions.push({
+			distance: 10.19,
+			leg: 23,
+			instruction: 'Make a right and get ready for the second loop'
+		});
 	} else
 		console.log('Unknown Race');
 	
