@@ -1,10 +1,18 @@
 var isIos = false;
+var channel = 'UC-0QtxHQwuQSHebab3LHAug';
+var internetRequired = 'No Internet. Please connect to the internet';
+
+
 $(document).ready(function() {
 	document.addEventListener('deviceready', onDeviceReady,false);	
 	if ( navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
 		isIos = true;
 	}
 	console.log('isIos : ' + isIos);
+	if ( isOnline() == false)
+	{
+    		alert(internetRequired);
+	}
 });
 
 function onDeviceReady() {
@@ -21,15 +29,32 @@ $(document).bind("pageinit", function() {
 		if($(this).attr("href") == "#"+$.mobile.activePage[0].id) {
 			$("[data-role=panel]").panel("close");
 		}
+	
 	});
-	var channel = 'UC-0QtxHQwuQSHebab3LHAug';
 	console.log('Channel: ' + channel);
-	getPlaylist(channel);
+	if(isOnline() == true) {
+		getPlaylist(channel);
+	} else {
+		alert(internetRequired);
+	}
 });
 
 $(document).on('click', '#racetrack', function() {
 	showRaceTrack();
 });
+function isOnline() {
+	if (navigator.connection.type==0) {
+    		alert(internetRequired);
+		return false;
+	} else if ( navigator.connection.type == 'none') {
+	 	alert(internetRequired);
+		return false;
+	}
+	else {
+		return true;
+	}
+	
+}
 
 //var spreadSheetId = '1pdNANQ6_wdtVfIw_aLvHXxNddcHzM2oK0frrIJuVYtI';
 //var spreadSheetRange = '5KM%20Runners!A:K';
@@ -39,7 +64,11 @@ var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
 var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
 
 $('#aprm_search_input').on("change", function(event) {
-	readSpreadsheet();
+	if (isOnline() == true ) {
+		readSpreadsheet(); 
+	} else {
+		alert(internetRequired);
+	}
 });
 
 watch_id = null;    // ID of the geolocation
@@ -115,10 +144,11 @@ function getPlaylist(channel) {
 				thumb = data.items[i].snippet.thumbnails.default.url;
 				if ( videoId ) {
 					console.log('VideoId: ' + videoId);
+					var str = '';
 					if ( isIos == false ) {
 						$('#vidlist').append('<li videoId="'+videoId+'"><div><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
 					} else {
-						var str = '<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick=loadPage("https://www.youtube.com/watch?v=' + videoId + '") href="#"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>';
+						str = '<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick=loadPage("https://www.youtube.com/watch?v=' + videoId + '") href="#"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>';
 						$('#vidlist').append(str);
 					}
 					console.log(str);
@@ -298,256 +328,258 @@ function loadMapInstructions() {
 	race = $("#select-race").val();
 	console.log('Race Selected : ' + race);
 	_instructions = new Array();
+	var legIdx = 0;
+	var distIdx = 0;
 	if ( race == 1 ) {
 		_instructions.push({
-			distance: 0.5,
-			leg: 1,
+			distance: distIdx + 0.5,
+			leg: ++legIdx,
 			instruction: 'Make an U turn at the U turn point'
 		});
 	}
 	else if ( race == 5 || race == 10 ) {
 		_instructions.push({
-			distance: 0.6,
-			leg: 1,
+			distance: distIdx + 0.6,
+			leg: ++legIdx,
 			instruction: 'Make a left turn into the Adarsh Palm Retreat Gate'
 		});
 		_instructions.push({
 			distance: 0.86,
-			leg: 2,
+			leg: ++legIdx,
 			instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
 		});
 		_instructions.push({
 			distance: 1.59,
-			leg: 3,
+			leg: ++legIdx,
 			instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
 		});
 		_instructions.push({
 			distance: 1.81,
-			leg: 4,
+			leg: ++legIdx,
 			instruction: 'Make a Right turn Adarsh Project Office Road'
 		});
 		_instructions.push({
 			distance: 2.07,
-			leg: 5,
+			leg: ++legIdx,
 			instruction: 'Make a right turn in front of the bay'
 		});
 		_instructions.push({
 			distance: 3.08,
-			leg: 6,
+			leg: ++legIdx,
 			instruction: 'Make a U turn at the U turn point'
 		});
 		_instructions.push({
 			distance: 3.85,
-			leg: 7,
+			leg: ++legIdx,
 			instruction: 'Make a right turn into the RMZ Eco world complex'
 		});
 		_instructions.push({
 			distance: 4.14,
-			leg: 8,
+			leg: ++legIdx,
 			instruction: 'Make a left turn'
 		});
 		_instructions.push({
 			distance: 4.2,
-			leg: 9,
+			leg: ++legIdx,
 			instruction: 'Make a left turn'
 		});
 		_instructions.push({
 			distance: 4.45,
-			leg: 10,
+			leg: ++legIdx,
 			instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
 		});
 		if ( race == 5 ) {
 			_instructions.push({
 				distance: 4.79,
-				leg: 11,
+				leg: ++legIdx,
 				instruction: 'Make a left turn towards 5KM finish line'
 			});
 		} else { // 10KM
 			_instructions.push({
 				distance: 4.79,
-				leg: 11,
+				leg: ++legIdx,
 				instruction: 'Make a loop and prepare for the 2nd loop'
 			});
 			_instructions.push({
 				distance: 5.75,
-				leg: 12,
+				leg: ++legIdx,
 				instruction: 'Make a left turn into the Adarsh Palm Retreat Gate'
 			});
 			_instructions.push({
 				distance: 6.02,
-				leg: 13,
+				leg: ++legIdx,
 				instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
 			});
 			_instructions.push({
 				distance: 6.75,
-				leg: 14,
+				leg: ++legIdx,
 				instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
 			});
 			_instructions.push({
 				distance: 6.99,
-				leg: 15,
+				leg: ++legIdx,
 				instruction: 'Make a Right turn Adarsh Project Office Road'
 			});
 			_instructions.push({
 				distance: 7.25,
-				leg: 16,
+				leg: ++legIdx,
 				instruction: 'Make a right turn in front of the bay'
 			});
 			_instructions.push({
 				distance: 8.24,
-				leg: 17,
+				leg: ++legIdx,
 				instruction: 'Make a U turn at the U turn point'
 			});
 			_instructions.push({
 				distance: 9.0,
-				leg: 18,
+				leg: ++legIdx,
 				instruction: 'Make a right turn into the RMZ Eco world complex'
 			});
 			_instructions.push({
 				distance: 9.27,
-				leg: 19,
+				leg: ++legIdx,
 				instruction: 'Make a left turn'
 			});
 			_instructions.push({
 				distance: 9.34,
-				leg: 20,
+				leg: ++legIdx,
 				instruction: 'Make a left turn'
 			});
 			_instructions.push({
 				distance: 9.58,
-				leg: 21,
+				leg: ++legIdx,
 				instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
 			});
 			_instructions.push({
 				distance: 9.91,
-				leg: 11,
+				leg: ++legIdx,
 				instruction: 'Make a left turn towards 10KM finish line'
 			});
 		}
 	} else if ( race == 21.1 ) {
 		_instructions.push({
 			distance: 0.6,
-			leg: 1,
+			leg: ++legIdx,
 			instruction: 'Make a Right turn into the Adarsh Palm Retreat Phase 3'
 		});
 		_instructions.push({
 			distance: 0.81,
-			leg: 2,
+			leg: ++legIdx,
 			instruction: 'Make a Right turn at the next T junction'
 		});
 		_instructions.push({
 			distance: 1.03,
-			leg: 3,
+			leg: ++legIdx,
 			instruction: 'Make a Left turn at the next T junction'
 		});
 		_instructions.push({
 			distance: 1.24,
-			leg: 4,
+			leg: ++legIdx,
 			instruction: 'Make an about turn at the next dead end'
 		});
 		_instructions.push({
 			distance: 1.44,
-			leg: 5,
+			leg: ++legIdx,
 			instruction: 'Make a Right turn at the next T junction'
 		});
 		_instructions.push({
 			distance: 1.67,
-			leg: 6,
+			leg: ++legIdx,
 			instruction: 'Make a Left turn towards Phase 3 exit gate'
 		});
 		_instructions.push({
 			distance: 1.9,
-			leg: 7,
+			leg: ++legIdx,
 			instruction: 'Continue straight towards the Clubhouse gate'
 		});
 		_instructions.push({
 			distance: 2.15,
-			leg: 8,
+			leg: ++legIdx,
 			instruction: 'Make a left turn into the Adarsh Palm Retreat Main Road'
 		});
 		_instructions.push({
 			distance: 2.87,
-			leg: 9,
+			leg: ++legIdx,
 			instruction: 'Make a left turn into the Adarsh Palm Retreat Hotel Road'
 		});
 		_instructions.push({
 			distance: 3.12,
-			leg: 10,
+			leg: ++legIdx,
 			instruction: 'Make a Right turn Adarsh Project Office Road'
 		});
 		_instructions.push({
 			distance: 3.39,
-			leg: 11,
+			leg: ++legIdx,
 			instruction: 'Make a right turn in front of the bay'
 		});
 		_instructions.push({
 			distance: 4.43,
-			leg: 12,
+			leg: ++legIdx,
 			instruction: 'Make a U turn at the U turn point'
 		});
 		_instructions.push({
 			distance: 5.24,
-			leg: 13,
+			leg: ++legIdx,
 			instruction: 'Make a right turn into the RMZ Eco world complex'
 		});
 		_instructions.push({
 			distance: 5.53,
-			leg: 14,
+			leg: ++legIdx,
 			instruction: 'Make a left turn'
 		});
 		_instructions.push({
 			distance: 5.6,
-			leg: 15,
+			leg: ++legIdx,
 			instruction: 'Make a left turn'
 		});
 		_instructions.push({
 			distance: 5.84,
-			leg: 16,
+			leg: ++legIdx,
 			instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
 		});
 		_instructions.push({
 			distance: 6.3,
-			leg: 17,
+			leg: ++legIdx,
 			instruction: 'Proceed straight towards the T Junction'
 		});
 		_instructions.push({
 			distance: 6.78,
-			leg: 18,
+			leg: ++legIdx,
 			instruction: 'Make a right'
 		});
 		_instructions.push({
 			distance: 6.94,
-			leg: 19,
+			leg: ++legIdx,
 			instruction: 'Make a left'
 		});
 		_instructions.push({
 			distance: 7.97,
-			leg: 20,
+			leg: ++legIdx,
 			instruction: 'Make an about turn'
 		});
 		_instructions.push({
 			distance: 9,
-			leg: 21,
+			leg: ++legIdx,
 			instruction: 'Make a right'
 		});
 		_instructions.push({
 			distance: 9.17,
-			leg: 22,
+			leg: ++legIdx,
 			instruction: 'Make a left'
 		});
 		_instructions.push({
 			distance: 9.8,
-			leg: 23,
+			leg: ++legIdx,
 			instruction: 'Make a right and get ready for the second loop'
 		});
 		_instructions.push({
 			distance: 10.07,
-			leg: 23,
+			leg: ++legIdx,
 			instruction: 'Proceed straight of the second loop'
 		});
 		_instructions.push({
 			distance: 10.19,
-			leg: 23,
+			leg: ++legIdx,
 			instruction: 'Make a right and get ready for the second loop'
 		});
 	} else
