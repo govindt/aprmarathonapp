@@ -1,7 +1,8 @@
 var isIos = false;
 var channel = 'UC-0QtxHQwuQSHebab3LHAug';
 var internetRequired = 'No Internet. Please connect to the internet';
-
+var startLatLng;
+var awayFromStart = 1000;
 
 $(document).ready(function() {
 	document.addEventListener('deviceready', onDeviceReady,false);	
@@ -197,7 +198,8 @@ function setPaused(val) {
 
 function showRaceTrack() {
     	console.log('In showRaceTrack');
-    	var defaultLatLng = new google.maps.LatLng(12.919710, 77.688186);  // Default APR Project office
+    	var defaultLatLng = new google.maps.LatLng(12.9198, 77.68908);  // Default APR Project office
+	startLatLng = defaultLatLng;
     	if ( navigator.geolocation ) {
 		directionsService = new google.maps.DirectionsService();
 		_directionsRenderer = new google.maps.DirectionsRenderer();
@@ -208,8 +210,9 @@ function showRaceTrack() {
         	function success(pos) {
 		    	console.log('success method in showRaceTrack' + pos.coords.latitude);
             		// Location found, show map with these coordinates
-            		drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-			
+			currentLatLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+            		drawMap(currentLatLng);
+			//awayFromStart = google.maps.geometry.spherical.computeDistanceBetween(startLatLng, currentLatLng);
         	}
         	function fail(error) {
             		drawMap(defaultLatLng);  // Failed to find location, show default map
