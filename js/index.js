@@ -46,16 +46,19 @@ $(document).on('click', '#racetrack', function() {
 });
 
 function isOnline() {
-	if (navigator.connection.type==0) {
-    		toast(internetRequired);
-		return false;
-	} else if ( navigator.connection.type == 'none') {
-	 	toast(internetRequired);
-		return false;
-	}
-	else {
-		return true;
-	}
+	if ( isIos == false ) {
+		if (navigator.connection.type==0) {
+    			toast(internetRequired);
+			return false;
+		} else if ( navigator.connection.type == 'none') {
+	 		toast(internetRequired);
+			return false;
+		}
+		else {
+			return true;
+		}
+	} 
+	return true;
 	
 }
 
