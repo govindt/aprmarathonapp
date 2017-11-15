@@ -10,10 +10,10 @@ $(document).ready(function() {
 		isIos = true;
 	}
 	console.log('isIos : ' + isIos);
-/*	if ( isOnline() == false)
+	if ( isOnline() == false)
 	{
-    		alert(internetRequired);
-	}*/
+    		toast(internetRequired);
+	}
 });
 
 function onDeviceReady() {
@@ -34,11 +34,11 @@ $(document).bind("pageinit", function() {
 	});
 	console.log('Channel: ' + channel);
 	getPlaylist(channel);
-/*	if(isOnline() == true) {
+	if(isOnline() == true) {
 		getPlaylist(channel);
 	} else {
-		alert(internetRequired);
-	}*/
+		toast(internetRequired);
+	}
 });
 
 $(document).on('click', '#racetrack', function() {
@@ -47,10 +47,10 @@ $(document).on('click', '#racetrack', function() {
 
 function isOnline() {
 	if (navigator.connection.type==0) {
-    		alert(internetRequired);
+    		toast(internetRequired);
 		return false;
 	} else if ( navigator.connection.type == 'none') {
-	 	alert(internetRequired);
+	 	toast(internetRequired);
 		return false;
 	}
 	else {
@@ -67,13 +67,13 @@ var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
 var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
 
 $('#aprm_search_input').on("change", function(event) {
-	readSpreadsheet(); 
+	//readSpreadsheet(); 
 
-	/*if (isOnline() == true ) {
+	if (isOnline() == true ) {
 		readSpreadsheet(); 
 	} else {
-		alert(internetRequired);
-	}*/
+		toast(internetRequired);
+	}
 });
 
 watch_id = null;    // ID of the geolocation
