@@ -18,8 +18,8 @@
     <div class="app">
 	<div data-role="page" id="home">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-home" data-theme"a" data-display="overlay" data-position="left">
-				<div data-role="controlgroup" data-corners="false">
+			<div data-role="panel" id="navpanel-home" data-theme="b" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" class="close-panel" id="aprm-li-home-home">Home</a>
 					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
 					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
@@ -38,7 +38,7 @@
 			</div>
 			</center>
 			<p>This year the annual APR Marathon is on Dec 3rd 2017.</p>
-			<a href="https://www.eventavenue.com/attReglogin.do?eventId=EVT7128" class="ui-shadow ui-btn ui-corner-all">Register Today</a>
+			<a href="https://www.eventavenue.com/attReglogin.do?eventId=EVT7128" class="ui-shadow ui-btn ui-corner-all" id="registerToday">Register Now</a>
 			<p>
 			<b>History:</b>
 
@@ -50,13 +50,13 @@
 			</p>
 		</div>
 		<footer data-role="footer">
-			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+			<h3>Copyright &copy; 2017, APR Charitable Trust.</h3>
 		</footer>
 	</div>
 	<div data-role="page" id="raceinfo">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-about" data-theme"a" data-display="overlay" data-position="left">
-				<div data-role="controlgroup" data-corners="false">
+			<div data-role="panel" id="navpanel-about" data-theme="b" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
 					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" class="ui-btn-active" id="aprm-li-about-home">Race Info</a>
 					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
@@ -69,51 +69,60 @@
        				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;position:fixed;" href="#navpanel-about">Menu</a>
 			</div>
 			<h3>APR Marathon Race Info Details</h3>
-			<ul>
+
+			<ul style="background:white;list-style-type: none;">
+			<br>
 				<li class="aprm_bold">APR Marathon Registration and Bib Pickup:</li>
-				<img class="banner" src="img/ProjectOffice.png">
+				<br>
+				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/ProjectOffice.png" ></div>
 <!--				
 				<div class="map">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8236984685304!2d77.68598091417867!3d12.919050219526216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae130f50bd46ad%3A0x72598e72d90ff692!2sAPR+project+office!5e0!3m2!1sen!2sin!4v1510066887044" style="width:100%; height:100%;frameborder: 0; border:0"></iframe>
 				</div>
 -->
-				Apr Project Office,
+				<span style="float:right;">Apr Project Office,
 				Outer Ring Road, Devarabisanahalli,
-				Bangalore, 560103.
+				Bangalore, 560103.</span>
+				<br>
+				<br>
+				<br>
 				<li class="aprm_bold">Race timing:</li>
-				5:45 AM - Half Marathon<br>
+
+				<div style="padding-right:15px;padding-top:10px;">5:45 AM - Half Marathon<br>
 				6:00 AM - 10 K<br>
 				8:15 AM - 5 K<br>
-				9:00 AM - 1 K<br>
+				9:00 AM - 1 K<br></div>
+				<br>
 				<li class="aprm_bold">Race Route:</li>
 				<div class="aprm_red_bold">
 				Half Marathon:
 				</div>
-				<img class="banner" src="img/21KM_route.png">
+				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/21KM_route.png"></div>
 				<div class="aprm_red_bold">
 				10KM:
 				</div>
-				<img class="banner" src="img/10KM_route.png">	
+				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/10KM_route.png">	</div>
 				<div class="aprm_red_bold">	
 				5KM:
 				</div>
-				<img class="banner" src="img/5KM_route.png">
+				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/5KM_route.png"></div>
 				<div class="aprm_red_bold">
 				1KM:
 				</div>
-				<img class="banner" src="img/1KM_route.png">
+				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/1KM_route.png"></div>
+				<br>
 				<li class="aprm_bold">Contact: <a href="mailto:AprMarathonSupport@googlegroups.com">AprMarathonSupport@googlegroups.com</a></li>
 			</ul>
 		</div>
 		<footer data-role="footer">
-			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+			<h3>Copyright &copy; 2017, APR Charitable Trust.</h3>
 		</footer>
 	</div>
 
 	<div data-role="page" id="racecontacts">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-about" data-theme"a" data-display="overlay" data-position="left">
-				<div data-role="controlgroup" data-corners="false">
+			<div data-role="panel" id="navpanel-about" data-theme="b" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
 					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
 					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" class="ui-btn-active" id="aprm-li-about-home">Race Contacts</a>
@@ -126,56 +135,77 @@
        				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;position:fixed;" href="#navpanel-about">Menu</a>
 			</div>
 			<h3>APR Marathon - Know your people</h3>
-			<ul>
-				<table>
+			<ul style="background:white;">
+			<br>
+				<table class="tblAlignKYP">
 				<tr>
 					<th colspan="2"><div class="aprm_bold">Race Director</li></th>
 				</tr>
 				<tr>
-					<td><img src="img/rajeshs.jpg"></td>
-					<td>Rajesh, an avid long distance runner has been running for over 15 years and completed 39 full marathons and several half marathons. His personal best timing is 3:48 in full marathon and 1:41 in half marathon. Running is his passion and has encouraged & coached many runners to pursue long distance running. Rajesh runs with BHUKMP running group & discovers better parts of Bangalore in the wee hours of weekend mornings.
+					<td class="tdAlignTopImg"><img src="img/rajeshs.jpg"></td>
+					<td class="tdAlignCtr">Rajesh, an avid long distance runner has been running for over 15 years and completed 39 full marathons and several half marathons. His personal best timing is 3:48 in full marathon and 1:41 in half marathon. Running is his passion and has encouraged & coached many runners to pursue long distance running. Rajesh runs with BHUKMP running group & discovers better parts of Bangalore in the wee hours of weekend mornings.
 					</td>
+				</tr>
+				<tr style="height:15px;">
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th colspan="2"><div class="aprm_bold">Race Flagoff</div></th>
 				</tr>
 				<tr>
-					<td><img src="img/raghu.jpg"></td>
-					<td>Raghu, is an entrepreneur and a sports enthusiast.He started running long distance in 2007 and since then has completed several marathons including Standard Chartered Mumbai Marathon, Kaveri Trail Marathon, Delhi Half Marathon, Skinny Turkey Raleigh Marathon and several others. In the last two years, he started taking part in triathlons (Swim, Bike and Run) has successfully completed one Full Iron Man, couple of Half Iron Man and few Olympic distance triathlons. He is looking forward to the next set of challenges. 
+					<td class="tdAlignTopImg"><img src="img/raghu.jpg"></td>
+					<td class="tdAlignCtr">Raghu, is an entrepreneur and a sports enthusiast.He started running long distance in 2007 and since then has completed several marathons including Standard Chartered Mumbai Marathon, Kaveri Trail Marathon, Delhi Half Marathon, Skinny Turkey Raleigh Marathon and several others. In the last two years, he started taking part in triathlons (Swim, Bike and Run) has successfully completed one Full Iron Man, couple of Half Iron Man and few Olympic distance triathlons. He is looking forward to the next set of challenges. 
 					</td>
+				</tr>
+				<tr style="height:15px;">
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<th colspan="2"><div class="aprm_bold">Half Marathon Pacer - 2 Hrs</div></th>
 				</tr>
 				<tr>
-					<td>Rajesh</td>
-					<td> Rajesh will pace Half Marathon apart from being the Race Director></td>
+					<td style="text-align:center;">Rajesh</td>
+					<td class="tdAlignCtr"> Rajesh will pace Half Marathon apart from being the Race Director.</td>
 				</tr>
-				<tr colspan="2">
+				<tr style="height:15px;">
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
 					<th colspan="2"><div class="aprm_bold">Half Marathon Pacer - 2 Hrs 15 Mins</div></th>
 				</tr>
 				<tr>
-					<td><img src="img/salil.jpg"></td>
-					<td>Salil Punalekar is a technology professional and an avid runner who has been running marathons for over 10 years.
+					<td class="tdAlignTopImg"><img src="img/salil.jpg"></td>
+					<td class="tdAlignCtr">Salil Punalekar is a technology professional and an avid runner who has been running marathons for over 10 years.
 He's run several marathons including Standard Chartered Mumbai Marathon, Kaveri Trail Marathon, New York City Marathon, San Jose Half, San Francisco Marathon and several other runs acrossUS and India.
 His personal best timing for half marathon was at San Jose Rock & Roll Half Marathon (1H 47M) in 2012, and for full marathon at Standard Chartered Mumbai Marathon (3 HR 58M) in 2013.
 He splits his time equally between New York City and Bangalore, both of which are mecca for runners with spectacular running locations.
 					</td>
 				</tr>
+				<tr style="height:15px;">
+					<td></td>
+					<td></td>
+				</tr>
 				<tr>
 					<th colspan="2"><div class="aprm_bold">10K Pacer - 1 hr</div></th>
 				</tr>
 				<tr>
-					<td><img src="img/Sriram.jpg"></td>
-					<td>Sriram started running since 2011, did a 10K during that year, graduated to full marathon the following year. So far done 6 Full Marathons with the PB of 4hrs and 8 mins @ BLR marathon 2015. Done several HMs and 10Ks along the way. Best HM timing is @ Spirit of Wipro 2015, bengaluru with 1 hr : 50 Mins. This year Sriram completed Bengalure 10K challenge under 50 mins.
+					<td class="tdAlignTopImg"><img src="img/Sriram.jpg"></td>
+					<td class="tdAlignCtr">Sriram started running since 2011, did a 10K during that year, graduated to full marathon the following year. So far done 6 Full Marathons with the PB of 4hrs and 8 mins @ BLR marathon 2015. Done several HMs and 10Ks along the way. Best HM timing is @ Spirit of Wipro 2015, bengaluru with 1 hr : 50 Mins. This year Sriram completed Bengalure 10K challenge under 50 mins.
 					</td>
 				</tr>
-				<tr colspan="2">
+				<tr style="height:15px;">
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
 					<th colspan="2"><div class="aprm_bold">10K Pacer - 1 Hr 15 mins</div></th>
 				</tr>	
 				<tr>
-					<td><img src="img/Jyoti.jpg"></td>
-					<td>Jyoti Kopparapu ia a resident of APR villa from last four years. She teaches Pilates at the club house and I try to inspire women who would like to run / jog and do marathons.
+					<td class="tdAlignTopImg"><img src="img/Jyoti.jpg"></td>
+					<td class="tdAlignCtr">Jyoti Kopparapu ia a resident of APR villa from last four years. She teaches Pilates at the club house and I try to inspire women who would like to run / jog and do marathons.
 She Has formed a running group and the members run very regularly and register for all kinds of runs be it for charity or fun or as a passion.
 She has been running for last six years and so far has done 10 half marathons and eight 10k.
 					</td>
@@ -185,14 +215,14 @@ She has been running for last six years and so far has done 10 half marathons an
 			</ul>
 		</div>
 		<footer data-role="footer">
-			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+			<h3>Copyright &copy; 2017, APR Charitable Trust.</h3>
 		</footer>
 	</div>
 	
 	<div data-role="page" id="myinfo">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-contact" data-theme"a" data-display="overlay" data-position="left">
-				<div data-role="controlgroup" data-corners="false">
+			<div data-role="panel" id="navpanel-contact" data-theme="b" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
 					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
 					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
@@ -205,7 +235,7 @@ She has been running for last six years and so far has done 10 half marathons an
        				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;position:fixed;" href="#navpanel-contact">Menu</a>
 			</div>
 			<h3>My APR Marathon</h3>
-			<table id="aprm_my_table">
+			<table id="aprm_my_table" style="background:white;">
 				<tr id="aprm_my_search_tr">
 				<td id="aprm_my_search_label_td">
 					<label for="aprm_my_search_name">Registration Email:</label>
@@ -228,14 +258,14 @@ She has been running for last six years and so far has done 10 half marathons an
 			</table>
 		</div>
 		<footer data-role="footer">
-			<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+			<h3>Copyright &copy; 2017, APR Charitable Trust.</h3>
 		</footer>
 	</div>
 	
 	<div data-role="page" id="racetrack">
 		<div data-role="content">
-			<div data-role="panel" id="navpanel-racetrack" data-theme"a" data-display="overlay" data-position="left">
-				<div data-role="controlgroup" data-corners="false">
+			<div data-role="panel" id="navpanel-racetrack" data-theme="b" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
 					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
 					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
@@ -248,7 +278,7 @@ She has been running for last six years and so far has done 10 half marathons an
        				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;position:fixed;" href="#navpanel-racetrack">Menu</a>
 			</div>
 			<h3>My Race Tracker</h3>
-			<table id="aprm_timer_table">
+			<table id="aprm_timer_table" style="background:white;">
 				<tr id="aprm_timer_row">
 				<td id="aprm_run_options_td">
 					<div class="ui-field-contain">
@@ -292,7 +322,7 @@ She has been running for last six years and so far has done 10 half marathons an
 			</tr>
 			<tr>
 				<td id="aprm_map_footer_td">
-				<h3>Copyright &copy; 2017, APR Charitable Trust</h3>
+				<h3>Copyright &copy; 2017, APR Charitable Trust.</h3>
 				</td>
 			</tr>
 		</table>
@@ -300,8 +330,8 @@ She has been running for last six years and so far has done 10 half marathons an
 
 	<div data-role="page" id="aprmchannel">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-channel" data-theme"a" data-display="overlay" data-position="left">
-				<div data-role="controlgroup" data-corners="false">
+			<div data-role="panel" id="navpanel-channel" data-theme="b" data-display="overlay" data-position="left">
+				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
 					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
 					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
@@ -321,7 +351,7 @@ She has been running for last six years and so far has done 10 half marathons an
 			<ul id="vidlist" data-role="listview" data-inset="true"></ul>
 		</div>
 		<footer data-role="footer">
-			<h3>1.0 Copyright &copy; 2017, APR Charitable Trust</h3>
+			<h3>Copyright &copy; 2017, APR Charitable Trust.</h3>
 		</footer>
 	</div>
 	
