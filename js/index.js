@@ -10,10 +10,10 @@ $(document).ready(function() {
 		isIos = true;
 	}
 	console.log('isIos : ' + isIos);
-	if ( isOnline() == false)
+/*	if ( isOnline() == false)
 	{
     		alert(internetRequired);
-	}
+	}*/
 });
 
 function onDeviceReady() {
@@ -33,16 +33,18 @@ $(document).bind("pageinit", function() {
 	
 	});
 	console.log('Channel: ' + channel);
-	if(isOnline() == true) {
+	getPlaylist(channel);
+/*	if(isOnline() == true) {
 		getPlaylist(channel);
 	} else {
 		alert(internetRequired);
-	}
+	}*/
 });
 
 $(document).on('click', '#racetrack', function() {
 	showRaceTrack();
 });
+
 function isOnline() {
 	if (navigator.connection.type==0) {
     		alert(internetRequired);
@@ -65,11 +67,13 @@ var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
 var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
 
 $('#aprm_search_input').on("change", function(event) {
-	if (isOnline() == true ) {
+	readSpreadsheet(); 
+
+	/*if (isOnline() == true ) {
 		readSpreadsheet(); 
 	} else {
 		alert(internetRequired);
-	}
+	}*/
 });
 
 watch_id = null;    // ID of the geolocation
