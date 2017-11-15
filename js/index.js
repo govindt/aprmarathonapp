@@ -10,10 +10,6 @@ $(document).ready(function() {
 		isIos = true;
 	}
 	console.log('isIos : ' + isIos);
-	if ( isOnline() == false)
-	{
-    		toast(internetRequired);
-	}
 });
 
 function onDeviceReady() {
@@ -34,11 +30,6 @@ $(document).bind("pageinit", function() {
 	});
 	console.log('Channel: ' + channel);
 	getPlaylist(channel);
-	if(isOnline() == true) {
-		getPlaylist(channel);
-	} else {
-		toast(internetRequired);
-	}
 });
 
 $(document).on('click', '#racetrack', function() {
@@ -46,20 +37,16 @@ $(document).on('click', '#racetrack', function() {
 });
 
 function isOnline() {
-	if ( isIos == false ) {
-		if (navigator.connection.type==0) {
-    			toast(internetRequired);
-			return false;
-		} else if ( navigator.connection.type == 'none') {
-	 		toast(internetRequired);
-			return false;
-		}
-		else {
-			return true;
-		}
-	} 
-	return true;
-	
+	if (navigator.connection.type==0) {
+		toast(internetRequired);
+		return false;
+	} else if ( navigator.connection.type == 'none') {
+ 		toast(internetRequired);
+		return false;
+	}
+	else {
+		return true;
+	}
 }
 
 //var spreadSheetId = '1pdNANQ6_wdtVfIw_aLvHXxNddcHzM2oK0frrIJuVYtI';
@@ -70,13 +57,7 @@ var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
 var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
 
 $('#aprm_search_input').on("change", function(event) {
-	//readSpreadsheet(); 
-
-	if (isOnline() == true ) {
-		readSpreadsheet(); 
-	} else {
-		toast(internetRequired);
-	}
+	readSpreadsheet(); 
 });
 
 watch_id = null;    // ID of the geolocation
