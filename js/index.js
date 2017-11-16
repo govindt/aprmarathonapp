@@ -872,7 +872,7 @@ function speakDirection() {
 		toast('Distance Covered: ' + distanceCovered + ' DistanceToNextLeg ' + distanceToNextLeg);
 		if ( distanceToNextLeg < 20 ) { // Less than 20 mts
 			speak(_instructions[leg].instruction);
-			runningTotal += (_instructions[leg].distance * 1000);
+			runningTotal = (_instructions[leg].distance * 1000);
 			setDistance(runningTotal);
 			leg++;
 		} else {
