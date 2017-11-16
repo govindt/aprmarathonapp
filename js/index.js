@@ -811,12 +811,15 @@ function speakDirection() {
 	if ( leg < 2 ) {
 		nextLegLatLng = new google.maps.LatLng(_instructions[leg].latitude, _instructions[leg].longitude);
 		distanceToNextLeg = google.maps.geometry.spherical.computeDistanceBetween(myLatLng, nextLegLatLng);
+		distanceToNextLeg = Math.round(distanceToNextLeg * 100)/100;
+
 		prevLegLatLng = startLatLng;
 		if ( leg > 0 ) 
 			prevLegLatLng = new google.maps.LatLng(_instructions[leg-1].latitude, _instructions[leg-1].longitude);	
 		distanceCovered = google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLegLatLng);	
+		distanceCovered = Math.round(distanceCovered * 100)/100;
 		toast('Distance Covered: ' + distanceCovered + ' DistanceToNextLeg ' + distanceToNextLeg);
-		if ( distanceToNextLeg < 0.2 ) {
+		if ( distanceToNextLeg < 20 ) { // Less than 20 mts
 			speak(_instructions[leg].instruction);
 			runningTotal += _instructions[leg].distance;
 			setDistance(runningTotal);

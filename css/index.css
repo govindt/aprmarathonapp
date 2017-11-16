@@ -10,17 +10,13 @@
     top: 0;
 }
 
-.ui-title {
-	width: 100%;
-}
-
 h3 {
 	text-align: center;
-	color: grey;
+	color: black;
 	font-family: 'san-serif';    
 }
 
-.heading_text {
+.header_text {
 	text-align: center;
 }
 
