@@ -114,6 +114,45 @@ function loadPage(url) {
 	window.parent.location = url;
 }
 
+function loadInstructions(data) {
+	console.log('Load Instructions');
+	if (typeof(data[0]) === 'undefined') {
+		return null;
+	} else {
+		$.each(data, function( rowIndex, row ) {
+	 		//bind header
+			if(rowIndex == 0) {
+				console.log('Ignoring first row');
+			} else {
+				var leg, latitude, longitude, instruction, distance;
+				$.each(row, function( index, colData ) {
+						if ( index == 0 )
+							leg = colData;
+						else if (index == 1)
+							latitude = colData;
+						else if (index == 2)
+							longitude = colData;
+						else if (index == 3)
+							instruction = colData;
+						else if (index == 4) {
+							distance = colData;
+							_instructions.push({
+								leg: leg,
+								latitude: latitude,
+								longitude: longitude,
+								instruction: instruction,
+								distance: distance
+							});
+						}
+						else
+							console.log('Ignoring additional params');
+				});
+			}
+		});
+		console.log(_instructions);
+	}
+}	
+
 function getPlaylist(channel) {
 	$('#vidlist').html('');
 	$.get(
@@ -328,7 +367,18 @@ function loadMapInstructions() {
 		});
 	}
 	else if ( race == 5 || race == 10 ) {
-		distIdx = 0.6;
+		$.ajax({
+	   		type: "GET",  
+   			url: "5KDirections.csv",
+			dataType: "text",       
+			success: function(response)  
+   			{
+				console.log('Read the 5K instructions successfully!!');
+			 	data = $.csv.toArrays(response);
+				loadInstructions(data);
+			}   
+		 });
+		/* distIdx = 0.6;
 		_instructions.push({
 			distance: distIdx,
 			latitude: 12.91951,
@@ -381,13 +431,13 @@ function loadMapInstructions() {
 		_instructions.push({
 			distance: distIdx,
 			instruction: 'Make a left turn, quick right and an immediate right to exit to the main road'
-		});
+		});*/
 		if ( race == 5 ) {
 			distIdx += 0.33 //4.78
-			_instructions.push({
+			/*_instructions.push({
 				distance: distIdx,
 				instruction: 'Make a left turn towards 5KM finish line'
-			});
+			});*/
 		} else { // 10KM
 			distIdx += 0.33 //4.78
 			_instructions.push({
@@ -807,21 +857,22 @@ function insertDirectionIcon (trafficIcon) {
 }
 
 function speakDirection() {
-	insertDirectionText(_instructions[leg].instruction);
-	if ( leg < 2 ) {
+	if ( leg == 0 ) { 
+		// Starting Point
+		prevLegLatLng = new google.maps.LatLng(_instructions[leg].latitude, _instructions[leg].longitude); 
+		leg++;
+	} else {
 		nextLegLatLng = new google.maps.LatLng(_instructions[leg].latitude, _instructions[leg].longitude);
 		distanceToNextLeg = google.maps.geometry.spherical.computeDistanceBetween(myLatLng, nextLegLatLng);
 		distanceToNextLeg = Math.round(distanceToNextLeg * 100)/100;
-
-		prevLegLatLng = startLatLng;
-		if ( leg > 0 ) 
-			prevLegLatLng = new google.maps.LatLng(_instructions[leg-1].latitude, _instructions[leg-1].longitude);	
+		insertDirectionText(_instructions[leg].instruction + ' in ' + (distanceToNextLeg/1000).toFixed(2) + ' kms ');
+		prevLegLatLng = new google.maps.LatLng(_instructions[leg-1].latitude, _instructions[leg-1].longitude);	
 		distanceCovered = google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLegLatLng);	
 		distanceCovered = Math.round(distanceCovered * 100)/100;
 		toast('Distance Covered: ' + distanceCovered + ' DistanceToNextLeg ' + distanceToNextLeg);
 		if ( distanceToNextLeg < 20 ) { // Less than 20 mts
 			speak(_instructions[leg].instruction);
-			runningTotal += _instructions[leg].distance;
+			runningTotal += (_instructions[leg].distance * 1000);
 			setDistance(runningTotal);
 			leg++;
 		} else {
