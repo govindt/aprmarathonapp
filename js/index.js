@@ -815,7 +815,8 @@ function speakDirection() {
 		if ( leg > 0 ) 
 			prevLegLatLng = new google.maps.LatLng(_instructions[leg-1].latitude, _instructions[leg-1].longitude);	
 		distanceCovered = google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLegLatLng);	
-		if ( distanceToNextLeg < 0.05 ) {
+		toast('Distance Covered: ' + distanceCovered + ' DistanceToNextLeg ' + distanceToNextLeg);
+		if ( distanceToNextLeg < 0.2 ) {
 			speak(_instructions[leg].instruction);
 			runningTotal += _instructions[leg].distance;
 			setDistance(runningTotal);
