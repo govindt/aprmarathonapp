@@ -23,10 +23,10 @@ $(document).on('click', '#vidlist li', function() {
 
 $(document).bind("pageinit", function() {
 	$("[data-role=panel] a").on("click", function () {
+		console.log(this);
 		if($(this).attr("href") == "#"+$.mobile.activePage[0].id) {
 			$("[data-role=panel]").panel("close");
 		}
-	
 	});
 	console.log('Channel: ' + channel);
 	getPlaylist(channel);
@@ -179,7 +179,6 @@ function getPlaylist(channel) {
 						str = '<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick=loadPage("https://www.youtube.com/watch?v=' + videoId + '") href="#"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>';
 						$('#vidlist').append(str);
 					}
-					console.log(str);
 					$('#vidlist:visible').listview('refresh');
 					if ( notSet ) {
 						var aprLastUploaded = localStorage.getItem('aprLastUploaded');

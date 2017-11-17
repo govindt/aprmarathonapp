@@ -21,11 +21,11 @@
 			<div data-role="panel" id="navpanel-home" data-theme="b" data-display="overlay" data-position="left">
 				<div data-role="controlgroup" data-corners="true">
 					<a href="#home" data-role="button" data-icon="home" data-mini="true" class="close-panel" id="aprm-li-home-home">Home</a>
-					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
-					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
-					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contact-home">My Info</a>
-					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race Tracker</a>
-					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-channel-home">APRM Channel</a>
+					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-home-about">Race Info</a>
+					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-home-contacts">Race Contacts</a>
+					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-home-info">My Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-home-racetrack">Race Tracker</a>
+					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-home-channel">APRM Channel</a>
 				</div>
 			</div>
 			<div id="header" data-role="header" data-theme="b" data-position="fixed">
@@ -57,12 +57,12 @@
 		<div data-role="content" data-theme="d">
 			<div data-role="panel" id="navpanel-about" data-theme="b" data-display="overlay" data-position="left">
 				<div data-role="controlgroup" data-corners="true">
-					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
-					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" class="ui-btn-active" id="aprm-li-about-home">Race Info</a>
-					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
-					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contact-home">My Info</a>
-					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race Tracker</a>
-					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-channel-home">APRM Channel</a>
+					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-about-home">Home</a>
+					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" class="ui-btn-active" id="aprm-li-about-about">Race Info</a>
+					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-contacts">Race Contacts</a>
+					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-about-info">My Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-about-racetrack">Race Tracker</a>
+					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-about-channel">APRM Channel</a>
 				</div>
 			</div>
 
@@ -72,46 +72,49 @@
 			<h3 id="header_text">APR Marathon Race Details</h3>
 
 			<ul style="background:white;list-style-type: none;">
-			<br>
+				<br>
 				<li class="aprm_bold">APR Marathon Registration and Bib Pickup:</li>
-				<br>
-				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/ProjectOffice.png" ></div>
-<!--				
-				<div class="map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8236984685304!2d77.68598091417867!3d12.919050219526216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae130f50bd46ad%3A0x72598e72d90ff692!2sAPR+project+office!5e0!3m2!1sen!2sin!4v1510066887044" style="width:100%; height:100%;frameborder: 0; border:0"></iframe>
-				</div>
--->
-				<span style="float:right;">Apr Project Office,
-				Outer Ring Road, Devarabisanahalli,
-				Bangalore, 560103.</span>
-				<br>
-				<br>
-				<br>
+					<br>
+					<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/ProjectOffice.png" >
+					</div>
+					<span style="float:right;">Apr Project Office,
+						Outer Ring Road, Devarabisanahalli,
+						Bangalore, 560103.
+					</span>
+					<br>
+					<br>
+					<br>
 				<li class="aprm_bold">Race timing:</li>
 
-				<div style="padding-right:15px;padding-top:10px;">5:45 AM - Half Marathon<br>
-				6:00 AM - 10 K<br>
-				8:15 AM - 5 K<br>
-				9:00 AM - 1 K<br></div>
-				<br>
+					<div style="padding-right:15px;padding-top:10px;">
+						5:45 AM - Half Marathon<br>
+						6:00 AM - 10 K<br>
+						8:15 AM - 5 K<br>
+						9:00 AM - 1 K<br>
+					</div>
+					<br>
 				<li class="aprm_bold">Race Route:</li>
-				<div class="aprm_red_bold">
-				Half Marathon:
-				</div>
-				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/21KM_route.png"></div>
-				<div class="aprm_red_bold">
-				10KM:
-				</div>
-				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/10KM_route.png">	</div>
-				<div class="aprm_red_bold">	
-				5KM:
-				</div>
-				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/5KM_route.png"></div>
-				<div class="aprm_red_bold">
-				1KM:
-				</div>
-				<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/1KM_route.png"></div>
-				<br>
+					<div class="aprm_red_bold">
+						Half Marathon:
+					</div>
+					<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/21KM_route.png">
+					</div>
+					<div class="aprm_red_bold">
+						10KM:
+					</div>
+					<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/10KM_route.png">
+					</div>
+					<div class="aprm_red_bold">	
+						5KM:
+					</div>
+					<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/5KM_route.png">
+					</div>
+					<div class="aprm_red_bold">
+						1KM:
+					</div>
+					<div style="padding-right:15px;"><img class="banner raceInfoImgs" src="img/1KM_route.png">
+					</div>
+					<br>
 				<li class="aprm_bold">Contact: <a href="mailto:AprMarathonSupport@googlegroups.com">AprMarathonSupport@googlegroups.com</a></li>
 			</ul>
 		</div>
@@ -122,18 +125,18 @@
 
 	<div data-role="page" id="racecontacts">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-about" data-theme="b" data-display="overlay" data-position="left">
+			<div data-role="panel" id="navpanel-contacts" data-theme="b" data-display="overlay" data-position="left">
 				<div data-role="controlgroup" data-corners="true">
-					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
-					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
-					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" class="ui-btn-active" id="aprm-li-about-home">Race Contacts</a>
-					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contact-home">My Info</a>
-					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race Tracker</a>
-					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-channel-home">APRM Channel</a>
+					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-contacts-home">Home</a>
+					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-contacts-about">Race Info</a>
+					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" class="ui-btn-active" id="aprm-li-contacts-contacts">Race Contacts</a>
+					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contacts-info">My Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-contacts-racetrack">Race Tracker</a>
+					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-contacts-channel">APRM Channel</a>
 				</div>
 			</div>
 			<div id="header" data-role="header" data-theme="b" data-position="fixed">
-       				<a id="bars-button" data-icon="bars" class="ui-btn-left" href="#navpanel-about">Menu</a>
+       				<a id="bars-button" data-icon="bars" class="ui-btn-left" href="#navpanel-contacts">Menu</a>
 			</div>
 			<h3 id="header_text">APR Marathon - Know your people</h3>
 
@@ -223,18 +226,18 @@ She has been running for last six years and so far has done 10 half marathons an
 	
 	<div data-role="page" id="myinfo">
 		<div data-role="content" data-theme="d">
-			<div data-role="panel" id="navpanel-contact" data-theme="b" data-display="overlay" data-position="left">
+			<div data-role="panel" id="navpanel-info" data-theme="b" data-display="overlay" data-position="left">
 				<div data-role="controlgroup" data-corners="true">
-					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
-					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
-					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
-					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true"  class="ui-btn-active" id="aprm-li-contact-home">My Info</a>
-					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race Tracker</a>
-					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-channel-home">APRM Channel</a>
+					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-info-home">Home</a>
+					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-info-about">Race Info</a>
+					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-info-contacts">Race Contacts</a>
+					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true"  class="ui-btn-active" id="aprm-li-info-info">My Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-info-racetrack">Race Tracker</a>
+					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-info-channel">APRM Channel</a>
 				</div>
 			</div>
 			<div id="header" data-role="header" data-theme="b" data-position="fixed">
-       				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;position:fixed;" href="#navpanel-contact">Menu</a>
+       				<a id="bars-button" data-icon="bars" class="ui-btn-left" style="margin-top:10px;position:fixed;" href="#navpanel-info">Menu</a>
 			</div>
 			<h3 id="header_text">My APR Marathon</h3>
 
@@ -269,11 +272,11 @@ She has been running for last six years and so far has done 10 half marathons an
 		<div data-role="content">
 			<div data-role="panel" id="navpanel-racetrack" data-theme="b" data-display="overlay" data-position="left">
 				<div data-role="controlgroup" data-corners="true">
-					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
-					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
-					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
-					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contact-home">My Info</a>
-					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" class="ui-btn-active" id="aprm-li-race-home">Race Tracker</a>
+					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-racetrack-home">Home</a>
+					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-racetrack-about">Race Info</a>
+					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-racetrack-contacts">Race Contacts</a>
+					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-racetrack-info">My Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" class="ui-btn-active" id="aprm-li-racetrack-racetrack">Race Tracker</a>
 					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" id="aprm-li-channel-home">APRM Channel</a>
 				</div>
 			</div>
@@ -335,12 +338,12 @@ She has been running for last six years and so far has done 10 half marathons an
 		<div data-role="content" data-theme="d">
 			<div data-role="panel" id="navpanel-channel" data-theme="b" data-display="overlay" data-position="left">
 				<div data-role="controlgroup" data-corners="true">
-					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-home-home">Home</a>
-					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Info</a>
-					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-about-home">Race Contacts</a>
-					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-contact-home">My Info</a>
-					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-race-home">Race Tracker</a>
-					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" class="ui-btn-active" id="aprm-li-channel-home">APRM Channel</a>
+					<a href="#home" data-role="button" data-icon="home" data-mini="true" id="aprm-li-channel-home">Home</a>
+					<a href="#raceinfo" data-role="button" data-icon="location" data-mini="true" id="aprm-li-channel-about">Race Info</a>
+					<a href="#racecontacts" data-role="button" data-icon="location" data-mini="true" id="aprm-li-channel-contacts">Race Contacts</a>
+					<a href="#myinfo" data-role="button" data-icon="info" data-mini="true" id="aprm-li-channel-info">My Info</a>
+					<a href="#racetrack" data-role="button" data-icon="navigation" data-mini="true" id="aprm-li-channel-racetrack">Race Tracker</a>
+					<a href="#aprmchannel" data-role="button" data-icon="video" data-mini="true" class="ui-btn-active" id="aprm-li-channel-channel">APRM Channel</a>
 				</div>
 			</div>
 			<div id="header" data-role="header" data-theme="b" data-position="fixed">
