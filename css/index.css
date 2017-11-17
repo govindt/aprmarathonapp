@@ -187,6 +187,12 @@ html, body, #map {
 	margin:0; /*make the buttons flush to the top*/
 }
 
+#vidlist-header {
+	background-color: white;
+	height:50px;
+	border:0px;
+}
+
 #header {
 	background-color: white;
 	height:54px;

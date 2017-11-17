@@ -6,52 +6,56 @@ Leg,Latitude,Longitude,Instruction,Cumulative Distance Covered (km)
 5,12.9159,77.69227,Make a U turn,1.23
 6,12.9178,77.69239,Make a right turn into the Phase 3 Main Road,1.44
 7,12.91774,77.6944,Make a left towards the Phase 3 exit gate,1.67
-8,12.91954,77.69456,Exit the gate and proceed straight to Adarsh Clubhouse Road ( stay left side of the road),1.87
-9,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),2.14
-10,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),2.88
-11,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),3.12
-12,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),3.38
-13,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),4.41
-14,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,5.21
-15,12.92236,77.68304,Make a left within RMZ,5.49
-16,12.92181,77.683,Make a left within RMZ,5.55
-17,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",5.8
-18,12.92225,77.68558,Make a right onto main road ( stay right side of the road),5.9
-19,12.92016,77.68549,Go Straight towards the T Junction,6.13
-20,12.91872,77.6855,Make a left,6.29
-21,12.91696,77.68942,Make a right,6.76
-22,12.91541,77.68929,Make a left,6.94
-23,12.91552,77.69864,Make a U turn,7.96
-24,12.91541,77.68929,Make a right,8.99
-25,12.91696,77.68942,Make a left,9.17
-26,12.91872,77.6855,Make a right,9.64
-27,12.92016,77.68549,Make a right towards the starting line,9.8
-28,12.92008,77.68793,Half the race completed,10.06
-29,12.9198,77.68929,You  will be starting the second loop,10.2
-30,12.91954,77.69456,Make a Right into Adarsh Palm Retreat Phase 3,10.78
-31,12.91774,77.6944,Make a right turn into Phase 3 Main road,10.99
-32,12.9178,77.69239,Make a left on to Lane 1S,11.21
-33,12.9159,77.69227,Make a U turn,11.43
-34,12.9178,77.69239,Make a right turn into the Phase 3 Main Road,11.64
-35,12.91774,77.6944,Make a left towards the Phase 3 exit gate,11.87
-36,12.91954,77.69456,Exit the gate and proceed straight to Adarsh Clubhouse Road ( stay left side of the road),12.07
-37,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),12.34
-38,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),13.08
-39,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),13.32
-40,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),13.58
-41,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),14.61
-42,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,15.41
-43,12.92236,77.68304,Make a left within RMZ,15.69
-44,12.92181,77.683,Make a left within RMZ,15.75
-45,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",16
-46,12.92225,77.68558,Make a right onto main road ( stay right side of the road),16.1
-47,12.92016,77.68549,Go Straight towards the T Junction,16.33
-48,12.91872,77.6855,Make a left,16.49
-49,12.91696,77.68942,Make a right,16.96
-50,12.91541,77.68929,Make a left,17.14
-51,12.91552,77.69864,Make a U turn,18.16
-52,12.91541,77.68929,Make a right,19.19
-53,12.91696,77.68942,Make a left,19.37
-54,12.91872,77.6855,Make a right,19.84
-55,12.92016,77.68549,Make a right towards the finish line,20
-56,12.92008,77.68793,You are done. Congratulations!!!,20.26
+8,12.91954,77.69456,Exit the Phase 3 exit gate and take sharp right towards Adarsh Back exit,1.87
+9,12.91943,77.6966,"At the Adarsh Back exit gate, take Uturn and come towards Adarsh CLUB house gate",2.1
+10,12.9195,77.69469,Take a Right on to Adarsh CLUB house gate,2.31
+11,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),2.58
+12,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),3.31
+13,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),3.54
+14,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),3.84
+15,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),4.85
+16,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,5.64
+17,12.92236,77.68304,Make a left within RMZ,5.92
+18,12.92181,77.683,Make a left within RMZ,5.98
+19,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",6.24
+20,12.92225,77.68558,Make a right onto main road ( stay right side of the road),6.33
+21,12.92016,77.68549,Go Straight towards the T Junction,6.56
+22,12.91872,77.6855,Make a left,6.72
+23,12.91696,77.68942,Make a right,7.21
+24,12.91541,77.68929,Make a left,7.4
+25,12.91552,77.69864,Make a U turn,8.39
+26,12.91541,77.68929,Make a right,9.39
+27,12.91696,77.68942,Make a left,9.55
+28,12.91872,77.6855,Make a right,10.05
+29,12.92016,77.68549,Make a right towards the starting line,10.21
+30,12.92008,77.68793,Half the race completed,10.5
+31,12.9198,77.68929,You  will be starting the second loop,10.62
+32,12.91954,77.69456,Make a Right into Adarsh Palm Retreat Phase 3,11.2
+33,12.91774,77.6944,Make a right turn into Phase 3 Main road,11.41
+34,12.9178,77.69239,Make a left on to Lane 1S,11.63
+35,12.9159,77.69227,Make a U turn,11.85
+36,12.9178,77.69239,Make a right turn into the Phase 3 Main Road,12.06
+37,12.91774,77.6944,Make a left towards the Phase 3 exit gate,12.29
+38,12.91954,77.69456,Exit the Phase 3 exit gate and take sharp right towards Adarsh Back exit,12.49
+39,12.91943,77.6966,"At the Adarsh Back exit gate, take Uturn and come towards Adarsh CLUB house gate",12.72
+40,12.9195,77.69469,Take a Right on to Adarsh CLUB house gate,12.93
+41,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),13.2
+42,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),13.93
+43,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),14.16
+44,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),14.46
+45,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),15.47
+46,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,16.26
+47,12.92236,77.68304,Make a left within RMZ,16.54
+48,12.92181,77.683,Make a left within RMZ,16.6
+49,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",16.86
+50,12.92225,77.68558,Make a right onto main road ( stay right side of the road),16.95
+51,12.92016,77.68549,Go Straight towards the T Junction,17.18
+52,12.91872,77.6855,Make a left,17.34
+53,12.91696,77.68942,Make a right,17.83
+54,12.91541,77.68929,Make a left,18.02
+55,12.91552,77.69864,Make a U turn,19.01
+56,12.91541,77.68929,Make a right,20.01
+57,12.91696,77.68942,Make a left,20.17
+58,12.91872,77.6855,Make a right,20.67
+59,12.92016,77.68549,Make a right towards the finish line,20.83
+60,12.92008,77.68793,You are done. Congratulations!!!,21.12

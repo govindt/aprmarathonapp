@@ -160,6 +160,8 @@ function getPlaylist(channel) {
 		{
 			part: 'snippet',
 			channelId: channel,
+			order: 'date',
+			maxResults: 25,
 			key: 'AIzaSyD4tJv6Pr1B3LIgS0zxincojbBUW4bf6Kk', 
 		},
 		function(data){
@@ -174,9 +176,9 @@ function getPlaylist(channel) {
 					console.log('VideoId: ' + videoId);
 					var str = '';
 					if ( isIos == false ) {
-						$('#vidlist').append('<li videoId="'+videoId+'"><div><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>');
+						$('#vidlist').append('<li videoId="'+videoId+'"><div><img src="'+thumb+'" width="80" height="50"></div><h3 id="vidlist-header">'+title+'</h3></li>');
 					} else {
-						str = '<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick=loadPage("https://www.youtube.com/watch?v=' + videoId + '") href="#"><img src="'+thumb+'" width="80" height="50"></div><h3>'+title+'</h3></li>';
+						str = '<li videoId="'+videoId+'"><div><a style="display:inline-block;text-decoration:none" onClick=loadPage("https://www.youtube.com/watch?v=' + videoId + '") href="#"><img src="'+thumb+'" width="80" height="50"></div><h3 id="vidlist-header">'+title+'</h3></li>';
 						$('#vidlist').append(str);
 					}
 					$('#vidlist:visible').listview('refresh');
@@ -527,7 +529,7 @@ function speakDirection() {
 		prevLegLatLng = new google.maps.LatLng(_instructions[leg-1].latitude, _instructions[leg-1].longitude);	
 		distanceCovered = google.maps.geometry.spherical.computeDistanceBetween(myLatLng, prevLegLatLng);	
 		distanceCovered = Math.round(distanceCovered * 100)/100;
-		toast('Distance Covered: ' + distanceCovered + ' DistanceToNextLeg ' + distanceToNextLeg);
+		//toast('Distance Covered: ' + distanceCovered + ' DistanceToNextLeg ' + distanceToNextLeg);
 		if ( distanceToNextLeg < 20 ) { // Less than 20 mts
 			speak(_instructions[leg].instruction);
 			runningTotal = (_instructions[leg].distance * 1000);
