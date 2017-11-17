@@ -149,7 +149,7 @@ function loadInstructions(data) {
 				});
 			}
 		});
-		console.log(_instructions);
+		//console.log(_instructions);
 	}
 }	
 
@@ -475,34 +475,34 @@ function drawAjaxRoute() {
 	}
 	console.log("Route URL : " + route_url);
 	$.ajax({
-  	type: "GET",
-  	url: route_url,
-  	dataType: "xml",
-  	success: function(xml) {
-		console.log('drawAjaxRoute::Success');
-		var points = [];
-		var bounds = new google.maps.LatLngBounds ();
-		$(xml).find("trkpt").each(function() {
-		 	var lat = $(this).attr("lat");
-	  		var lon = $(this).attr("lon");
-			var p = new google.maps.LatLng(lat, lon);
-		  	points.push(p);
-	  		bounds.extend(p);
-	});
+  		type: "GET",
+  		url: route_url,
+  		dataType: "xml",
+  		success: function(xml) {
+			console.log('drawAjaxRoute::Success');
+			var points = [];
+			var bounds = new google.maps.LatLngBounds ();
+			$(xml).find("trkpt").each(function() {
+		 		var lat = $(this).attr("lat");
+	  			var lon = $(this).attr("lon");
+				var p = new google.maps.LatLng(lat, lon);
+		  		points.push(p);
+	  			bounds.extend(p);
+			});
 
-	var poly = new google.maps.Polyline({
-	  // use your own style here
-	  path: points,
-	  strokeColor: stroke_color,
-	  strokeOpacity: .7,
-	  strokeWeight: 4
-	});
+			var poly = new google.maps.Polyline({
+	  			// use your own style here
+	  			path: points,
+	  			strokeColor: stroke_color,
+	 			strokeOpacity: .7,
+	  			strokeWeight: 4
+			});
 	
-	poly.setMap(map);
+			poly.setMap(map);
 	
-	// fit bounds to track
-	map.fitBounds(bounds);
-	}
+			// fit bounds to track
+			map.fitBounds(bounds);
+		}
 	});
 }
 
