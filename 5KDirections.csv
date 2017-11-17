@@ -1,15 +1,15 @@
 Leg,Latitude,Longitude,Instruction,Cumulative Distance Covered (km)
-1,12.9198,77.68929,Start Marathon,0.00
-2,12.91951,77.69463,Make a left at the Adarsh Clubhouse Road,0.58
-3,12.92194,77.69474,Make a left onto APR Villas main road,0.85
-4,12.92216,77.68799,Make a left after passing the lake on your right,1.59
-5,12.92008,77.68793,Make a right onto the main road,1.82
-6,12.92016,77.68549,Make a right at the Bay and move straight along the road,2.09
-7,12.92844,77.68474,Take a U turn and travel back on same road,3.07
-8,12.92225,77.68558,Make a right turn into the apartments,3.81
-9,12.92236,77.68304,Make a left within apartments,4.10
-10,12.92181,77.683,Make a left within apartments,4.17
-11,12.92173,77.68528,"Exit apartments by moving zig zag, left right, left right quickly",4.41
-12,12.92225,77.68558,Make a right onto main road,4.51
-13,12.92016,77.68549,Make a left onto the finishing straight,4.75
-14,12.92008,77.68793,End Marathon at finish line,5.01
+1,12.9198,77.68929,Start Marathon between T1/T2,0
+2,12.91951,77.69463,Make a left at the Adarsh Clubhouse Road ( stay left side of the road),0.58
+3,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),0.85
+4,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),1.59
+5,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),1.82
+6,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),2.09
+7,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),3.07
+8,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,3.81
+9,12.92236,77.68304,Make a left within RMZ,4.1
+10,12.92181,77.683,Make a left within RMZ,4.17
+11,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",4.41
+12,12.92225,77.68558,Make a right onto main road ( stay right side of the road),4.51
+13,12.92016,77.68549,Make a left onto the finishing straight ( stay right side of the road),4.75
+14,12.92008,77.68793,End Marathon at finish line ( just opposite to old Foodworld/Namdhari's),5.01
