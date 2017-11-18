@@ -5,10 +5,10 @@
 
 <!-- For Ios -->
 <!--
-<widget id="org.aprmarathon.aprmarathonapp" version="1.0.3" versionCode="103" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="org.aprmarathon.aprmarathonapp" version="2.0.1" versionCode="201" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 -->
 <!-- For Android -->
-<widget id="com.phonegap.aprmarathonapp" version="1.0.3" versionCode="103" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.aprmarathonapp" version="2.0.1" versionCode="201" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 
     <name>APR Marathon App</name>
     <description>
