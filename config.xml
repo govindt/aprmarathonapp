@@ -1,5 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.aprmarathon.aprmarathonapp" version="2.0.2" versionCode="202" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<!-- Not tested
+<widget android-packageName="com.phonegap.aprmarathonapp" ios-CFBundleIdentifier="org.aprmarathon.aprmarathonapp" id="com.phonegap.aprmarathonapp" version="1.0.3" versionCode="103" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+-->
+
+<!-- For Ios -->
+<!--
+<widget id="org.aprmarathon.aprmarathonapp" version="1.0.3" versionCode="103" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+-->
+<!-- For Android -->
+<widget id="com.phonegap.aprmarathonapp" version="1.0.3" versionCode="103" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>APR Marathon App</name>
     <description>
         APR Marathon 2017 App.
