@@ -433,6 +433,10 @@ function readSpreadsheet() {
 				var values = new Array();
 				values = valueRanges[i].values;
 				for ( var j = 0; j < values.length; j++) {
+					if (checkEmpty(values[j][6]) == '' ) {
+						console.log('values[j][6] is empty');
+						continue;
+					}
 					if ( values[j][6].toLowerCase() == value.toLowerCase() ) {
 						myRow += "<tr>";
 						myRow +=  "<td width='20%'>" + checkEmpty(values[j][0]) + "</td>";
