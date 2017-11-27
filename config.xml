@@ -4,12 +4,12 @@
 -->
 
 <!-- For Ios -->
-<!--
 <widget id="org.aprmarathon.aprmarathonapp" version="2.0.2" versionCode="202" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
--->
-<!-- For Android -->
-<widget id="com.phonegap.aprmarathonapp" version="2.0.2" versionCode="202" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 
+<!-- For Android -->
+<!--
+<widget id="com.phonegap.aprmarathonapp" version="2.0.2" versionCode="202" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+-->
     <name>APR Marathon App</name>
     <description>
         APR Marathon 2017 App.
