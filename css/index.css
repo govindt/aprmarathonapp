@@ -149,9 +149,17 @@ html, body, #map {
     	color: white;
 }
 
+#aprm_group_run_details_header {
+	width: 100%;
+	padding-top: 12px;
+    	padding-bottom: 12px;
+    	text-align: left;
+    	background-color: red;
+    	color: white;
+}
 
 
-#aprm_run_details_data_table {
+#aprm_run_details_data_table, #aprm_group_run_details_data_table {
 	width: 100%;
 	padding-top: 12px;
     	padding-bottom: 12px;

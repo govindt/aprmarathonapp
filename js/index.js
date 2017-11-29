@@ -57,7 +57,11 @@ var authKey = 'AIzaSyAPyvyDNyL2gX_q4Lw3vR7Df7UbzFP4A1I';
 var sample_url = 'https://sheets.googleapis.com/v4/spreadsheets/' + spreadSheetId + '/values:batchGet?ranges=' + spreadSheetRange + '&key=' +authKey;
 
 $('#aprm_search_input').on("change", function(event) {
-	readSpreadsheet(); 
+	readSpreadsheet(6, false); 
+});
+
+$('#aprm_group_search_input').on("change", function(event) {
+	readSpreadsheet(9, true); 
 });
 
 watch_id = null;    // ID of the geolocation
@@ -415,10 +419,20 @@ function loadMapInstructions() {
 	drawAjaxRoute();
 }
 
-function readSpreadsheet() {
-	var value = $('#aprm_search_input').val();
+function readSpreadsheet(colname, isGroupSearch) {
+	var value = '';
+	if ( isGroupSearch == false ) {
+		value = $('#aprm_search_input').val();
+	} else {
+		value = $('#aprm_group_search_input').val();
+	}
 	if (checkEmpty(value) == '' ) {
-		$("#aprm_run_details_data").html('');
+		if ( isGroupSearch == false ) {
+			$("#aprm_run_details_data").html('');
+		}
+		else {
+			$("#aprm_group_run_details_data").html('');
+		}
 		return '';
 	}
 	console.log('Value: ' + value);
@@ -433,11 +447,11 @@ function readSpreadsheet() {
 				var values = new Array();
 				values = valueRanges[i].values;
 				for ( var j = 0; j < values.length; j++) {
-					if (checkEmpty(values[j][6]) == '' ) {
-						console.log('values[j][6] is empty');
+					if (checkEmpty(values[j][colname]) == '' ) {
+						console.log(checkEmpty(values[j][0]) + ' in row ' + (j+1) + ' has empty in column ' + colname);
 						continue;
 					}
-					if ( values[j][6].toLowerCase() == value.toLowerCase() ) {
+					if ( values[j][colname].toLowerCase() == value.toLowerCase() ) {
 						myRow += "<tr>";
 						myRow +=  "<td width='20%'>" + checkEmpty(values[j][0]) + "</td>";
 						myRow +=  "<td width='20%'>" + values[j][1] + "</td>";
@@ -449,10 +463,20 @@ function readSpreadsheet() {
 					}
 					if ( j == values.length - 1) {
 				                console.log(myRow);
-						if ( found == true ) 
-							$("#aprm_run_details_data").html(myRow);
-						else
-							$("#aprm_run_details_data").html("No Results found");	
+						if ( found == true ) {
+							if ( isGroupSearch == false ) {
+								$("#aprm_run_details_data").html(myRow);
+							} else {
+								$("#aprm_group_run_details_data").html(myRow);
+							}
+						}
+						else {
+							if ( isGroupSearch == false ) {
+								$("#aprm_run_details_data").html("No Results found");	
+							} else {
+								$("#aprm_group_run_details_data").html("No Results found");	
+							}
+						}
 					}
 
 				}
