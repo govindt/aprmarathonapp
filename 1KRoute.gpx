@@ -1,24 +1,30 @@
 <?xml version="1.0" ?>
 <gpx xmlns="http://www.topografix.com/GPX/1/1">
  <trk>
-  <name>
-   1KRoute2017
-  </name>
+  <name>1k run</name>
   <trkseg>
-   <trkpt lat="12.91981" lon="77.68903"/>
-   <trkpt lat="12.91979" lon="77.68921"/>
-   <trkpt lat="12.91969" lon="77.69127"/>
-   <trkpt lat="12.91958" lon="77.6928"/>
-   <trkpt lat="12.91959" lon="77.69299"/>
-   <trkpt lat="12.91957" lon="77.69359"/>
-   <trkpt lat="12.91957" lon="77.69361"/>
-   <trkpt lat="12.91957" lon="77.69361"/>
-   <trkpt lat="12.91959" lon="77.69285"/>
-   <trkpt lat="12.91958" lon="77.69271"/>
-   <trkpt lat="12.91963" lon="77.69206"/>
-   <trkpt lat="12.91979" lon="77.68929"/>
-   <trkpt lat="12.91979" lon="77.68908"/>
-   <trkpt lat="12.91981" lon="77.68903"/>
+   <trkpt lat="12.91947" lon="77.6944"/>
+   <trkpt lat="12.91946" lon="77.69447"/>
+   <trkpt lat="12.91946" lon="77.69447"/>
+   <trkpt lat="12.91774" lon="77.69443"/>
+   <trkpt lat="12.91773" lon="77.69443"/>
+   <trkpt lat="12.91778" lon="77.69324"/>
+   <trkpt lat="12.91782" lon="77.69283"/>
+   <trkpt lat="12.9178" lon="77.69273"/>
+   <trkpt lat="12.91783" lon="77.69235"/>
+   <trkpt lat="12.91783" lon="77.69235"/>
+   <trkpt lat="12.9178" lon="77.69273"/>
+   <trkpt lat="12.91782" lon="77.69283"/>
+   <trkpt lat="12.91778" lon="77.69324"/>
+   <trkpt lat="12.91777" lon="77.69375"/>
+   <trkpt lat="12.91773" lon="77.69443"/>
+   <trkpt lat="12.91773" lon="77.69443"/>
+   <trkpt lat="12.91946" lon="77.69447"/>
+   <trkpt lat="12.91946" lon="77.69447"/>
+   <trkpt lat="12.91947" lon="77.6944"/>
+   <trkpt lat="12.91947" lon="77.6944"/>
+   <trkpt lat="12.9195" lon="77.6944"/>
+   <trkpt lat="12.9195" lon="77.6944"/>
   </trkseg>
  </trk>
 </gpx>
