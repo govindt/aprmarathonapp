@@ -1,3 +1,8 @@
 Leg,Latitude,Longitude,Instruction,Cumulative Distance Covered (km)
-1,12.9198,77.68929,Start Marathon between T1/T2,0
-2,12.91957,77.69361,Make a left at the Adarsh Clubhouse Road ( stay left side of the road),0.5
+1,12.91947,77.6944,Start Marathon between APR Villa CH Gate and APR Villa Phase 3 Gate,0
+2,12.91946,77.69447,Make a Right into Adarsh Palm Retreat Phase 3,0.01
+3,12.91774,77.69443,Make a right turn into Phase 3 Main road,0.2
+4,12.91783,77.69235,Make a U turn at the end of Phase 3 Main road,0.43
+5,12.91773,77.69443,Make a left towards the Phase 3 exit gate,0.65
+6,12.91955,77.69458,Make a left at the Phase 3 gate onto the finishing straight,0.84
+7,12.9195,77.6944,You are done! Congratulations!,0.86

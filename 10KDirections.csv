@@ -1,29 +1,28 @@
 Leg,Latitude,Longitude,Instruction,Cumulative Distance Covered (km)
-1,12.9198,77.68929,Start Marathon between T1/T2,0
-2,12.91951,77.69463,Make a left at the Adarsh Clubhouse Road ( stay left side of the road),0.58
-3,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),0.85
-4,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),1.59
-5,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),1.82
-6,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),2.09
-7,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),3.07
-8,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,3.81
-9,12.92236,77.68304,Make a left within RMZ,4.1
-10,12.92181,77.683,Make a left within RMZ,4.17
-11,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",4.41
-12,12.92225,77.68558,Make a right onto main road ( stay right side of the road),4.51
-13,12.92016,77.68549,Make a left onto the finishing straight ( stay right side of the road),4.75
-14,12.92008,77.68793,End First loop at finish line ( just opposite to old Foodworld/Namdhari's),5.01
-15,12.9198,77.68929,You  will be starting the second loop,5.17
-16,12.91951,77.69463,Make a left at the Adarsh Clubhouse Road ( stay left side of the road),5.75
-17,12.92194,77.69474,Make a left onto APR Villas main road  ( stay left side of the road),6.02
-18,12.92216,77.68799,Make a left after passing the lake on your right  ( stay left side of the road),6.76
-19,12.92008,77.68793,Make a right onto the main road ( stay left side of the road),6.99
-20,12.92016,77.68549,Make a right at the Bay and move straight along the road  ( stay left side of the road),7.26
-21,12.92844,77.68474,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),8.24
-22,12.92225,77.68558,Make a right turn into the first RMZ buidling  on the right,8.98
-23,12.92236,77.68304,Make a left within RMZ,9.27
-24,12.92181,77.683,Make a left within RMZ,9.34
-25,12.92173,77.68528,"Exit  RMZ  by moving zig zag, left right, left right quickly",9.58
-26,12.92225,77.68558,Make a right onto main road ( stay right side of the road),9.68
-27,12.92016,77.68549,Make a left onto the finishing straight ( stay right side of the road),9.92
-28,12.92008,77.68793,You are done. Congratulations.,10.18
+1,12.91954,77.69443,Start Marathon between APR Villa CH gate and APR Villa Phase 3 Gate,0
+2,12.91954,77.69457,Make a left at the Adarsh Clubhouse Road ( stay left side of the road),0.02
+3,12.9219,77.6947,Make a left onto APR Villas main road  ( stay left side of the road),0.28
+4,12.92212,77.688,Make a left after passing the lake on your right  ( stay left side of the road),1.01
+5,12.92011,77.6879,Make a right onto the main road ( stay left side of the road),1.23
+6,12.92016,77.68551,Make a right at the Bay and move straight along the road  ( stay left side of the road),1.49
+7,12.92884,77.68466,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),2.52
+8,12.92016,77.68551,Make a left onto the road leading to villas( stay right side of the road),3.55
+9,12.92011,77.6879,Make a left onto the road leading to villas( stay right side of the road),3.81
+10,12.92212,77.688,Make a right when passing the lake on your left to reach  APR villas main road (stay right side of the road),4.03
+11,12.9219,77.6947,Make a right onto Adarsh Clubhouse Road (stay right side of the road),4.76
+12,12.91954,77.69457,Make a right at the APR Villa CH gate,5.02
+13,12.91954,77.69443,End first loop at start line (between APR Villa CH gate and APR Villa Phase 3 Gate),5.04
+14,,,You will be starting the second loop,
+15,12.91954,77.69443,Make a U-turn at the start line,5.04
+16,12.91954,77.69457,Make a left at the Adarsh Clubhouse Road ( stay left side of the road),5.05
+17,12.9219,77.6947,Make a left onto APR Villas main road  ( stay left side of the road),5.31
+18,12.92212,77.688,Make a left after passing the lake on your right  ( stay left side of the road),6.04
+19,12.92011,77.6879,Make a right onto the main road ( stay left side of the road),6.27
+20,12.92016,77.68551,Make a right at the Bay and move straight along the road  ( stay left side of the road),6.53
+21,12.92884,77.68466,Take a U turn and travel back on same road - near Villa Entrance near Intel ( stay right side of the road),7.55
+22,12.92016,77.68551,Make a left onto the road leading to villas( stay right side of the road),8.58
+23,12.92011,77.6879,Make a left onto the road leading to villas( stay right side of the road),8.84
+24,12.92212,77.688,Make a right when passing the lake on your left to reach  APR villas main road (stay right side of the road),9.06
+25,12.9219,77.6947,Make a right onto Adarsh Clubhouse Road (stay right side of the road),9.79
+26,12.91954,77.69457,Make a right at the APR Villa CH gate onto the finishing straight,10.06
+27,12.91947,77.6944,You are done! ,10.07
