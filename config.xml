@@ -4,12 +4,12 @@
 -->
 
 <!-- For Ios -->
-<widget id="org.aprmarathon.aprmarathonapp" version="2.0.5" versionCode="205" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<!--
+<widget id="org.aprmarathon.aprmarathonapp" version="3.0.1" versionCode="301" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+-->
 
 <!-- For Android -->
-<!--
-<widget id="com.phonegap.aprmarathonapp" version="2.0.5" versionCode="205" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
--->
+<widget id="com.phonegap.aprmarathonapp" version="3.0.1" versionCode="301" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>APR Marathon App</name>
     <description>
         APR Marathon 2017 App.
@@ -19,7 +19,7 @@
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="26" />
     <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="deployment-target" value="7.1.2" />
     <platform name="android">
